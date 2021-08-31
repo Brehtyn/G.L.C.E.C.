@@ -1,3 +1,11 @@
+
+Sitemap: http://glcec.org/sitemap.txt
+
+User-agent: *
+Disallow: /contactForm.php
+Disallow: /enrollForm.php
+Disallow: /privateForm.php
+
 User-agent: Baiduspider
 User-agent: Yisouspider
 User-agent: PetalBot
@@ -12,4 +20,3 @@ Disallow: /
 User-agent: Sogou inst spider
 Disallow: /
 
-Sitemap: http://glcec.org/sitemap.txt
