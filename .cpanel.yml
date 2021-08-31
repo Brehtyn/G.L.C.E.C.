@@ -13,4 +13,7 @@
             - /bin/cp contactForm.php $DEPLOYPATH
             - /bin/cp enrollForm.php $DEPLOYPATH
             - /bin/cp privateForm.php $DEPLOYPATH
+            - /bin/cp README.md $DEPLOYPATH
+            - /bin/cp license.txt $DEPLOYPATH
+            - /bin/cp robots.txt $DEPLOYPATH
             - /bin/cp sitemap.txt $DEPLOYPATH
