@@ -1,0 +1,15 @@
+User-agent: Baiduspider
+User-agent: Yisouspider
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Sogou web spider
+Disallow: /
+
+User-agent: Sogou inst spider
+Disallow: /
+
+Sitemap: http://glcec.org/sitemap.txt
