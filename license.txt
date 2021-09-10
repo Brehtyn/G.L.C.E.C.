@@ -2,8 +2,10 @@ Private License
 
 Copyright (c) [1985-2021] [© GLCEC Org. All Rights Reserved]
 
-Pertaining all assets, pictures, or graphical in nature is strictly prohibited 
+Use pertaining to all assets, pictures, or media graphical in nature is strictly prohibited 
 from any use, personal, commercial, or otherwise and MUST be removed.
+
+However, the underlying code developed by me is free to use. Enjoy.
 
 MIT License
 
