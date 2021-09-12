@@ -19,8 +19,8 @@
   --clr-decline: rgb(219, 1, 1);
   --clr-footer: #12a063;
 
-  --font-primary: ;
-  --font-accent: "pageHeader", "Raleway", Arial;
+  --font-primary: "pageHeader", Arial;
+  --font-accent: "Raleway", Arial;
   --font-forms: "Raleway", Arial;
 }
 
@@ -33,7 +33,7 @@
 body {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 1.3125rem;
+  font-size: 1.4525rem;
   line-height: 1.6;
 }
 
@@ -53,7 +53,12 @@ h4 {
   line-height: 1;
 }
 
-header,
+header {
+  background-image: url(assets/bg.png);
+  background-repeat: repeat-x;
+  background-position: top;
+}
+
 section {
   padding: 3rem 0;
 }
@@ -72,8 +77,25 @@ section {
   box-shadow: 4px 4px 14px #000;
 }
 
+/* popups */ 
+.form-background,
+.form-popup,
+.enroll-form-popup
+ {
+  display: none;
+}
 
+.banner_r > a > img,
+.banner_l > a > img{
+  width:25px;
+}
 
+.banner_l,
+.banner_r {
+  width:50%;
+  float:left;
+  text-align:center;
+}
 @-moz-document url-prefix() {
 
   @media screen and (min-width:1251px) { 
