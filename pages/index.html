@@ -174,7 +174,7 @@
 
     <div class="banner_r text_align_center">
       <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_button" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact 
 
       <div class="form-popup" id="contactForm">
         <form name="generalcontactform" method="post" class="form-container" action="contactForm.php">
@@ -195,12 +195,17 @@
 
         </form>
       </div>
-      <div class="form-background" id="backgroundForm">
-      </div>
+      
+      <div class="form-background" id="backgroundForm"> </div>
+      </a>
+
+      <a> 
+      <button onclick="openNavBar()" class="mobile_nav_button"> <span class="iconify" data-icon="oi:menu" data-inline="false"></span> </button>
+      </a>
+
     </div>
 
-    <button onclick="openNavBar()" class="mobile_nav_button"> <span class="iconify" data-icon="oi:menu"
-        data-inline="false"></span> </button>
+  
 
     <div class="container" id="header_slideshow">
 
@@ -403,7 +408,7 @@
         <a id="footer_link" href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az-DHS
         </a>
         |
-        <a id="footer_link" class="open_button" onclick="openForm_contact()"> Contact Us </a>
+        <a id="footer_link" class="open_cursor" onclick="openForm_contact()"> Contact Us </a>
       </div>
 
       <div class="footer_bottom">
