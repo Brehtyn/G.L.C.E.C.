@@ -27,6 +27,7 @@
   <link href="../style.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="../assets/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0" }> </script>
 </head>
 
 <!--  Body  -->
@@ -161,10 +162,6 @@
     }
 
   </script>
-
-  <script async defer crossorigin="anonymous" if ($(window).width() <=801) { } else {
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0" }>
-    </script>
 
   <header>
 
@@ -301,7 +298,7 @@
 
       <iframe class="text_align_center border-primary" id="homepage_map"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3288.712103231022!2d-114.324492!3d34.484827!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d1f2701e078b3d%3A0x3e22f6f2e3165d95!2sGuiding%20Light%20Christian%20Educational%20Center!5e0!3m2!1sen!2sus!4v1576631745211!5m2!1sen!2sus"
-        allowfullscreen="" width="100%"></iframe>
+        allowfullscreen="true" width="100%"></iframe>
 
       <p class="text_align_center" id="caption">Guiding Light is open from 6:30 am to 5:30 pm, Monday through Friday,
         year round.</p>
@@ -371,8 +368,8 @@
       <div class="footer_card_large border-primary">
         <iframe
           src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FGuidingLightChristianEducationalCenter%2F&tabs=timeline&width=520&height=400&small_header=true&adapt_container_width=false&hide_cover=true&show_facepile=false&appId"
-          style="border:none;overflow:hidden;height:100%;width:100%;" scrolling="yes" frameborder="0" allowTransparency="true"
-          class="border-primary" allow="encrypted-media"></iframe>
+          style="border:none;overflow:hidden;height:100%;width:100%;" class="border-primary" scrolling="yes" frameborder="0" 
+          allowTransparency="true" loading="lazy" ></iframe>
       </div>
 
       <div class="footer_card_standard border-primary text_align_center">
