@@ -32,78 +32,120 @@
 
 <!--  Body  -->
 
-<body onLoad="time()">
+<body onLoad="slideshow_timer()">
   <script>
-    var distance;
-    var header_slideshow_pics =
-      ["url(../assets/banner_1.png)", "url(../assets/banner_2.png)", "url(../assets/banner_3.png)", "url(../assets/banner_4.png)", "url(../assets/banner_5.png)"];   // initiate slideshow
-    var testimony_slideshow =
-      ["'Guiding Light has a staff that is nice and caring!! They go above and beyond!! Thank you Guiding Light staff!!!'", "'It's great to see such wonderful people providing such a great and important service ... to ensure that the little folks of Havasu are able to get a loving and guided education!'", "'We love Guiding Light! My son has learned and grown so much since attending.'", "'Thank you so much for making my girls feel at home.'", "'Wonderful staff that genuinely cares about their students and families! My daughter loves this school!'"];
-    var testimony_slideshow_caption =
-      [" - Tina V", " - Mo S.", " - Melanie N.", " -Al L.", " - Jodie C."];
-    var links =
-      ["index.html", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    var i = 0; //header slideshow picture counter
-    var toggle = 0 // mobile navbar toggle variable
 
-    window.onbeforeunload = function () {                                     // scroll to top
+    var scroll_distance_fromtop;                                     // distance scrolled from top of page used for nav function
+
+    var header_slideshow_pics_array =
+      ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
+    var header_slideshow_links_array =
+      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+    var header_slideshow_counter = 0; 
+    var bool_header_slideshow_autoscroll = true;
+
+    var testimony_slideshow_array =
+      ["'Guiding Light has a staff that is nice and caring!! They go above and beyond!! Thank you Guiding Light staff!!!'", "'It's great to see such wonderful people providing such a great and important service ... to ensure that the little folks of Havasu are able to get a loving and guided education!'", "'We love Guiding Light! My son has learned and grown so much since attending.'", "'Thank you so much for making my girls feel at home.'", "'Wonderful staff that genuinely cares about their students and families! My daughter loves this school!'"];
+    var testimony_slideshow_caption_array =
+      [" - Tina V", " - Mo S.", " - Melanie N.", " -Al L.", " - Jodie C."];
+    var testimony_counter = 0; 
+    var bool_testimony_slideshow_autoscroll = true;
+    
+    var bool_mobile_nav_display = false;
+
+    function header_slideshow_counter_decrease() {                    // scroll left on slideshow
+      header_slideshow_counter--;                                     
+      //bool_header_slideshow_autoscroll = false;
+      //header_slideshow_autoscroll_reset();
+      if (header_slideshow_counter < 0 ) { 
+        header_slideshow_counter = (header_slideshow_pics_array.length - 1);
+      }
+      sync_slideshows();
+    }
+
+    function header_slideshow_counter_increase() {                    // scroll right on slideshow
+      header_slideshow_counter++;                                     
+      if (header_slideshow_counter >= header_slideshow_pics_array.length) { 
+        header_slideshow_counter = 0;
+      }
+      sync_slideshows();
+    }
+
+    function header_slideshow_autoscroll_timer() {
+      for ( i = 0; bool_testimony_slideshow_autoscroll; i++ ) {
+        setTimeout("sync_slideshows()", 5000)
+        testimony_slideshow_counter++;
+      }
+    }
+    //function header_slideshow_autoscroll_reset() {
+    //  setTimeout(5000);
+    //  bool_header_slideshow_autoscroll = true;
+    //}
+
+    function testimony_slideshow_autoscroll_timer() {
+      for ( i = 0; bool_testimony_slideshow_autoscroll; i++ ) {
+        setTimeout("sync_slideshows()", 5000)
+        testimony_slideshow_counter++;
+      }
+    }
+    //function testimony_slideshow_autoscroll_reset() {
+    //  setTimeout(5000);
+    //  bool_testimony_slideshow_autoscroll = true;
+    //}
+
+    function sync_slideshows() {     
+      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics_array[header_slideshow_counter];
+      document.getElementById('header_slideshow_links').href = header_slideshow_links_array[header_slideshow_counter];
+      document.getElementById('testimony_slideshow').textContent = testimony_slideshow_array[testimony_counter];
+      document.getElementById('testimony_slideshow_caption').textContent = testimony_slideshow_caption_array[testimony_counter];
+    }
+
+    window.onbeforeunload = function () {                              // scroll to top of page on load
       window.scrollTo(0, 0);
     }
 
-    function picleft() {                                                       // scroll left on slideshow
-      if (i <= 0) { i = 4 }
-      else { i-- }
-      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics[i];
-      document.getElementById('header_slideshow_links').href = links[i];
-    }
-
-    function picright() {                                                      // scroll right on slideshow
-      if (i >= 4) { i = 0 }
-      else { i++ }
-      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics[i];
-      document.getElementById('header_slideshow_links').href = links[i];
-    }
-
     $(document).ready(function () {
-      var scrollTop = $(window).scrollTop();                              // Find distance from top of page
-      var navmenu = document.getElementById("link_menu");               // Put link menu element in a variable
-      var navelementOffset = navmenu.offsetTop;                               // Find offset of link menu element
+      var scrollTop = $(window).scrollTop();                           // find distance from top of page
+      var navmenu = document.getElementById("link_menu");              // put link menu element in a variable
+      var navelementOffset = navmenu.offsetTop;                        // Find offset of link menu element
 
-      distance = (navelementOffset - scrollTop);                            // Calculate link menu from top of page
+      scroll_distance_fromtop = (navelementOffset - scrollTop);        // calculate link menu from top of page
     });
 
     $(window).scroll(function () {
-      if ($(window).width() <= 801) {                                   //do nothing on mobile
-      }
+      if ($(window).width() <= 1099.99) { }                            // do nothing on mobile
       else {
-        var activeTop = $(window).scrollTop();                                  // Find distance from top of page
-        if (activeTop <= (distance)) {                                          // release link menu on adequate scroll distance
+        var activeTop = $(window).scrollTop();                         // find distance from top of page
+        if (activeTop <= (scroll_distance_fromtop)) {                  // release link menu on adequate scroll distance
           $('.link_menu').css("position", "static");
         }
         else {
-          $('.link_menu').css("position", "fixed");                            // anchored link menu to page
+          $('.link_menu').css("position", "fixed");                    // anchored link menu to page
           $('.link_menu').css("top", "-5px");
           $('.link_menu').css("left", "absolute");
         }
       }
     });
 
-    function advance() {                                                      // auto change slide
-      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics[i];
-      document.getElementById('testimony_slideshow').textContent = testimony_slideshow[i];
-      document.getElementById('testimony_slideshow_caption').textContent = testimony_slideshow_caption[i];
-      document.getElementById('header_slideshow_links').href = links[i];
-      i++;
+    function toggleNavBar() {
+      if (bool_mobile_nav_display == false) {
+        document.getElementById("link_menu").style.display = "flex";
+        bool_mobile_nav_display = true;
+      }
+      else {
+        document.getElementById("link_menu").style.display = "none";
+        bool_mobile_nav_display = false;
+      }
     }
-    function time() {                                                          // timer
-      i = 0;
-      setTimeout("advance()", 5000);
-      setTimeout("advance()", 10000);
-      setTimeout("advance()", 15000);
-      setTimeout("advance()", 20000);
-      setTimeout("advance()", 25000);
-      setTimeout("time()", 30000);
-    }
+
+    $(window).resize(function () {                                    // nav state display issue fix
+      if ($(window).width() <= 1099.99) { 
+        document.getElementById("link_menu").style.display = "none";
+       }                           
+      else {
+        document.getElementById("link_menu").style.display = "flex";
+      }                  
+    });
 
     function openForm_contact() {
       document.getElementById("contactForm").style.display = "block";
@@ -120,18 +162,7 @@
       document.getElementById("backgroundForm").style.display = "block";
     }
 
-    function openNavBar() {
-      if (toggle == 0) {
-        document.getElementById("link_menu").style.display = "block";
-        toggle++;
-      }
-      else {
-        document.getElementById("link_menu").style.display = "none";
-        toggle--;
-      }
-    }
-
-    function closeForm() {
+    function closeForms() {
       document.getElementById("privateForm").style.display = "none";
       document.getElementById("enrollForm").style.display = "none";
       document.getElementById("contactForm").style.display = "none";
@@ -181,18 +212,14 @@
           <form name="generalcontactform" method="post" class="form-container" action="contactForm.php">
             Name:
             <input type="text" class="private_form" name="name" placeholder="Joey Doe">
-
             Phone Number:
             <input type="tel" class="private_form" name="phone" placeholder="(928)123-1234">
-
             Email:
             <input type="email" class="private_form" name="email" placeholder="example@email.com">
-
             Comment(s):
             <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
-
             <button type="submit" class="btn" value="Send Form" onclick="return validateForm()"> Submit </button>
-            <a href="" class="btn_cancel" onclick="closeForm()"> Close </a>
+            <a href="" class="btn_cancel" onclick="closeForms()"> Close </a>
 
           </form>
         </div>
@@ -201,22 +228,16 @@
       </a>
 
       <a>
-        <button onclick="openNavBar()" class="mobile_nav_button"> <span class="iconify" data-icon="oi:menu"
+        <button onclick="toggleNavBar()" class="mobile_nav_button"> <span class="iconify" data-icon="oi:menu"
             data-inline="false"></span> </button>
       </a>
 
     </div>
 
-
-
     <div class="container" id="header_slideshow">
-
-      <div id="header_slideshow_left" onClick="picleft()"> </div>
-      <a id="header_slideshow_links" href="index.html">
-        <div id="header_slideshow_pics"> </div>
-      </a>
-      <div id="header_slideshow_right" onClick="picright()"> </div>
-
+      <div id="header_slideshow_left" onClick="header_slideshow_counter_decrease()"> </div>
+      <a id="header_slideshow_links" href="index.html"> <div id="header_slideshow_pics"> </div> </a>
+      <div id="header_slideshow_right" onClick="header_slideshow_counter_increase()"> </div>
     </div>
 
     <nav class="link_menu" id="link_menu">
@@ -394,7 +415,7 @@
 
     <div class="text_align_center" id="footer_sitemap">
       <div>
-        <h4> More From Us </h4>
+        <h4> Sitemap </h4>
 
         <a href="index.html"> Home </a> |
         <a href="enroll.html"> Enroll </a> |
