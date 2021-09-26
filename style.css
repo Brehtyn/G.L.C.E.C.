@@ -158,13 +158,13 @@ p > a {
     display: none;
     flex-direction: column;
     position: absolute;
-    transform: translate(-10%, 15px);
+    transform: translate(-12%, 15px);
     background-image: var(--clr-nav-gradiant);
     border-radius: 0 0 50px 0 ;
   }
 
   #nav_drop_menu > a {
-    padding: 5px;
+    padding: 10px;
     margin-inline:10px;
   }
   
@@ -199,14 +199,6 @@ p > a {
     margin-inline:10px;
   }
 
-}
-
-.form-background,
-.form-popup,
-.enroll-form-popup,
-.drop_link
- {
-  display: none;
 }
 
 .banner_l > a, 
@@ -288,7 +280,6 @@ a > img:active {
     background-image:var(--clr-nav-gradiant);
     border-radius: .6rem;
     box-shadow: 2px 2px 4px #000;
-    cursor:pointer;
   }  
 
   #link_menu {
@@ -324,7 +315,6 @@ a > img:active {
     background-color:var(--clr-primary-a);
     border-radius: .6rem;
     box-shadow: 2px 2px 4px #000;
-    cursor:pointer;
     right:20px;
   }  
 
@@ -516,4 +506,108 @@ footer {
   padding: 10px 10px;
   color:var(--clr-footer-font);
   background-color: var(--clr-footer-b);
+}
+
+.form-background,
+.form-popup,
+.enroll-form-popup
+ {
+  display: none;
+  position: fixed;
+  width: 120vw;
+  height: 120vh;
+  top: 0;
+  left: 0;
+}
+
+.form-background {
+  background-color: black;
+  z-index: 5;
+  opacity: 78%;
+}
+
+.form-popup {
+  left:50%;
+  font-size: 1.25rem;
+  padding: 35px 50px;
+  width: 70vw;
+  max-width: 500px;
+  min-width: 300px;
+  min-height: fit-content;
+  height: fit-content;
+  max-height: 84vh;
+  transform: translate(-50%, 8%);
+  border-style: groove;
+  border-bottom: double;
+  background-color: var(--clr-primary-b);
+  z-index: 6;
+  overflow-y: scroll;
+}
+
+.form-popup > form {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+.form-popup > form > span:first-child {
+  font-size: 1.43rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: underline;
+  padding:5px;
+}
+
+.form-popup > form > input,
+.form-popup > form > textarea,
+.form-popup > form > button,
+.form-popup > form > span,
+.form-popup > form > a {
+  margin: 2px auto;
+  padding: 2px;
+  max-width:350px;
+  flex-direction: column;
+  width: 100%;
+  color: #fff;
+}
+
+.form-popup > form > input {
+  padding: 8px;
+}
+
+.form-popup > form > button,
+.form-popup > form > #fake_button { /* YOU MAKE THESE FORM WORKS WITH TWO REAL BUTTONS THEN COMPLAIN TO ME */
+  color: white;
+  letter-spacing: 1px;
+  margin-top: 10%;
+  max-width: 200px;
+  text-align: center;
+  align-items: center;
+	border: none;
+	padding: 2px;
+	font: inherit;
+	outline: black;
+}
+
+.form-popup > form > a > span {
+  color: white;
+}
+
+.form-popup > form > button:hover,
+.form-popup > form > a:hover {
+  color: var(--clr-neutral-a) !important;
+  text-decoration: underline;
+}
+
+.form-popup > form > button:active,
+.form-popup > form > a:active {
+  color: #000 !important; 
+}
+
+.form-popup > form > button {
+  background-color: var(--clr-accept);
+}
+
+.form-popup > form > #fake_button {
+  background-color: var(--clr-decline);
 }
