@@ -15,12 +15,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Brentyn Hanna">
+  <meta name="programmer" content="Brentyn Hanna">
   <meta name="school" content="Guiding Light Christian Educational Center">
-  <meta name="description"
-    content="The official website of our school and child-care services, Guiding Light Christian Educational Center.">
-  <meta name="keywords"
-    content="GLCEC, school, preschool, kindergarten, childcare, certified, Lake Havasu City, LHC, babysitting, babysitter">
-
+  <meta name="description" content="The official website for Guiding Light Christian Educational Center, the school and child-care services.">
+  <meta name="keywords" content="GLCEC, school, preschool, kindergarten, childcare, certified, Lake Havasu City, LHC, babysitting, babysitter, private school">
 
   <title>Guiding Light School</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,12 +28,10 @@
   <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0" }> </script>
 </head>
 
-<!--  Body  -->
-
 <body onLoad="slideshow_timer()">
   <script>
 
-    var scroll_distance_fromtop;                                     // distance scrolled from top of page used for nav function
+    var scroll_distance_fromtop;                                      // distance scrolled from top of page used for nav function
 
     var header_slideshow_pics_array =
       ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
@@ -52,6 +48,7 @@
     var bool_testimony_slideshow_autoscroll = true;
     
     var bool_mobile_nav_display = false;
+    var bool_mobile_nav_more_display = false;
 
     function header_slideshow_counter_decrease() {                    // scroll left on slideshow
       header_slideshow_counter--;                                     
@@ -113,16 +110,19 @@
     });
 
     $(window).scroll(function () {
-      if ($(window).width() <= 1099.99) { }                            // do nothing on mobile
+      if ($(window).width() <= 1099) { }                            // do nothing on mobile
       else {
         var activeTop = $(window).scrollTop();                         // find distance from top of page
         if (activeTop <= (scroll_distance_fromtop)) {                  // release link menu on adequate scroll distance
-          $('.link_menu').css("position", "static");
+          $('.link_menu').css("position", "relative");
+          $('.link_menu').css("left", "0%"); 
+          $('.link_menu').css("transform", "unset");
         }
         else {
           $('.link_menu').css("position", "fixed");                    // anchored link menu to page
-          $('.link_menu').css("top", "-5px");
-          $('.link_menu').css("left", "absolute");
+          $('.link_menu').css("top", "0");
+          $('.link_menu').css("left", "50%"); 
+          $('.link_menu').css("transform", "translate(-50%, 0)");
         }
       }
     });
@@ -138,12 +138,31 @@
       }
     }
 
-    $(window).resize(function () {                                    // nav state display issue fix
-      if ($(window).width() <= 1099.99) { 
-        document.getElementById("link_menu").style.display = "none";
+    function toggleNavMoreLinks() {
+      if (bool_mobile_nav_more_display == false) {
+        document.getElementById("nav_drop_menu").style.display = "flex";
+        bool_mobile_nav_more_display = true;
+      }
+      else {
+        document.getElementById("nav_drop_menu").style.display = "none";
+        bool_mobile_nav_more_display = false;
+      }
+    }
+
+    $(window).resize(function () {                                    // multiple nav state display issue fix
+      if ($(window).width() <= 1099) { 
+        document.getElementById("link_menu").style.display = "none"; 
+        document.getElementById("nav_drop_menu").style.display = "none"; 
+        $('.link_menu').css("position", "fixed");                   
+        bool_mobile_nav_display = false;   
+        bool_mobile_nav_more_display = false;              
+        $('.link_menu').css("left", "50%"); 
+        $('.link_menu').css("transform", "translate(-50%, 0)");             
        }                           
       else {
-        document.getElementById("link_menu").style.display = "flex";
+        document.getElementById("link_menu").style.display = "flex";  
+        document.getElementById("nav_drop_menu").style.display = "none"; 
+        bool_mobile_nav_more_display = false;
       }                  
     });
 
@@ -245,21 +264,16 @@
       <div class="link"> <a href="enroll.html"> Enroll Now </a> </div>
       <div class="link"> <a href="about_us.html"> About Us </a> </div>
       <div class="link"> <a href="parent_info.html"> Parent Info </a> </div>
-      <div class="link"> <button id="nav_drop_button"> Useful Links </button>
+      <div class="link"> <button id="nav_drop_button" onclick="toggleNavMoreLinks()"> Useful Links </button>
         <div id="nav_drop_menu">
-          <div class="drop_link"> <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light">
-              Az Dep. of Health Services </a> </div>
-          <div class="drop_link"> <a href="https://www.azccrr.com/"> Childcare Resources & Refs </a> </div>
-          <div class="drop_link"> <a
-              href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance"> Dep.
-              of Economic Security </a> </div>
-          <div class="drop_link"> <a href="https://www.firstthingsfirst.org/"> First Things First </a> </div>
-          <div class="drop_link"> <a href="https://ecedassociates.com/"> Early Childhood Edu Inc. </a> </div>
-          <div class="drop_link"> <a
-              href="https://www.swhd.org/programs/health-and-development/birth-to-five-helpline/"> Birth to Five
-              Helpline </a> </div>
-          <div class="drop_link"> <a href="https://www.zerotothree.org/"> Zero to Three </a> </div>
-          <div class="drop_link"> <a href="scholarships.html"> Scholarship Info </a> </div>
+          <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az Dep. of Health Services </a>
+          <a href="https://www.azccrr.com/"> Childcare Resources & Refs </a> 
+          <a href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance"> Dep. of Economic Security </a>
+          <a href="https://www.firstthingsfirst.org/"> First Things First </a>
+          <a href="https://ecedassociates.com/"> Early Childhood Edu Inc. </a>
+          <a href="https://www.swhd.org/programs/health-and-development/birth-to-five-helpline/"> Birth to Five Helpline </a>
+          <a href="https://www.zerotothree.org/"> Zero to Three </a>
+          <a href="scholarships.html"> Scholarship Info </a>
         </div>
       </div>
     </nav>
@@ -397,7 +411,7 @@
         <h4>Real Testimonies</h4>
         <p>
         <div id="testimony_slideshow"> All quotes taken from handselected Facebook reviews. </div>
-        <div id="testimony_slideshow_caption" style="padding-top: 75px;"> ~ L O A D I N G ~ </div>
+        <div id="testimony_slideshow_caption" style="padding-top: 75px;">  L O A D I N G  </div>
         </p>
       </div>
 
