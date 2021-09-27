@@ -1,9 +1,7 @@
  ~~~~~~~~~~~~ General ~~~~~~~~~~~~ 
 
-- google validate
-- fix reviews timer code
-- give header banner bubble selections
-- FIX RHONDA F. REVIEW ( put on all pages )
+- give header slideshow bubble selections
+- add timer delay on header slideshow scroll
 
  ~~~~~~~~~~~~ About Us ~~~~~~~~~
 
