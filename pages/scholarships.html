@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -15,93 +15,172 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Brentyn Hanna">
-  <meta name="principal" content="Floriana Hanna">
+  <meta name="programmer" content="Brentyn Hanna">
   <meta name="school" content="Guiding Light Christian Educational Center">
   <meta name="description"
-    content="The official website of our school and child-care services, Guiding Light Christian Educational Center.">
-  <meta name="keywords" content="GLCEC, School, Preschool, Kindergarden, Childcare, Certified, Lake Havasu City, LHC">
+    content="The official website for Guiding Light Christian Educational Center, the school and child-care services.">
+  <meta name="keywords"
+    content="GLCEC, school, preschool, kindergarten, childcare, certified, Lake Havasu City, LHC, babysitting, babysitter, private school">
 
-
-  <title>Guiding Light School</title>
+  <title>Guiding Light Scholarships</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="../assets/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"
+    }> </script>
 </head>
 
-<!--  Body  -->
-<!--  Body  -->
-<!--  Body  -->
-<!--  Body  -->
-
-<body onLoad="time()">
+<body>
   <script>
-    var distance;
-    var pic_slideshow = ["url(assets/banner_1.png)", "url(assets/banner_2.png)", "url(assets/banner_3.png)", "url(assets/banner_4.png)", "url(assets/banner_5.png)"];   // initiate slideshow
-    var testimony_slideshow = ["'Guiding Light has a staff that is nice and caring!! They go above and beyond!! Thank you Guiding Light staff!!!'", "'It's great to see such wonderful people providing such a great and important service ... to ensure that the little folks of Havasu are able to get a loving and guided education!'", "'We love Guiding Light! My son has learned and grown so much since attending.'", "'Thank you so much for making my girls feel at home.'", "'Wonderful staff that genuinely cares about their students and families! My daughter loves this school!'"];
-    var testimony_slideshow_bottom = [" - Tina V", " - Mo S.", " - Melanie N.", " -Al L.", " - Jodie C."];
-    var links = ["index.html", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    var i = 0; //header slideshow picture counter
-    var toggle = 0 // mobile navbar toggle variable
 
-    window.onbeforeunload = function () {                                     // scroll to top
+    var scroll_distance_fromtop;                                       // distance scrolled from top of page used for nav position function
+
+    var header_slideshow_pics_array =
+      ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
+    var header_slideshow_links_array =
+      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+    var header_slideshow_counter = 0;
+    var bool_header_slideshow_autoscroll = true;
+
+    var testimony_slideshow_array =
+      ["'Guiding Light has a staff that is nice and caring!! They go above and beyond!! Thank you Guiding Light staff!!!'", "'It's great to see such wonderful people providing such a great and important service ... to ensure that the little folks of Havasu are able to get a loving and guided education!'", "'We love Guiding Light! My son has learned and grown so much since attending.'", "'Thank you so much for making my girls feel at home.'", "'Wonderful staff that genuinely cares about their students and families! My daughter loves this school!'", "'25 years ago my children went to GLCEC and now my grandchildren go there and you have been one of the biggest blessigs in our lives ... for many years.'"];
+    var testimony_slideshow_caption_array =
+      [" - Tina V", " - Mo S.", " - Melanie N.", " - Al L.", " - Jodie C.", " - Rhonda F."];
+    var testimony_slideshow_counter = 0;
+    var bool_testimony_slideshow_autoscroll = true;
+
+    var bool_mobile_nav_display = false;
+    var bool_mobile_nav_more_display = false;
+
+    function header_slideshow_counter_decrease() {                     // scroll left on header slideshow
+      header_slideshow_counter--;
+      if (header_slideshow_counter < 0) {
+        header_slideshow_counter = (header_slideshow_pics_array.length - 1);
+      }
+      sync_slideshows();
+    }
+
+    function header_slideshow_counter_increase() {                     // scroll right on header slideshow
+      header_slideshow_counter++;
+      if (header_slideshow_counter >= header_slideshow_pics_array.length) {
+        header_slideshow_counter = 0;
+      }
+      sync_slideshows();
+    }
+
+    function header_slideshow_counter_auto_increase() {                     // scroll right on header slideshow
+      header_slideshow_counter++;
+      if (header_slideshow_counter >= header_slideshow_pics_array.length) {
+        header_slideshow_counter = 0;
+      }
+      sync_slideshows();
+    }
+
+    if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
+      setInterval(header_slideshow_counter_auto_increase, 2500);
+    }
+    else {
+    }
+
+    function testimony_slideshow_counter_auto_increase() {                  // scroll right on testimony slideshow
+      testimony_slideshow_counter++;
+      if (testimony_slideshow_counter >= testimony_slideshow_array.length) {
+        testimony_slideshow_counter = 0;
+      }
+      sync_slideshows();
+    }
+
+    if (bool_testimony_slideshow_autoscroll == true) {               // autoscroll testimony slideshow
+      setInterval(testimony_slideshow_counter_auto_increase, 4000);
+    }
+    else {
+    }
+
+    function sync_slideshows() {
+      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics_array[header_slideshow_counter];
+      document.getElementById('header_slideshow_links').href = header_slideshow_links_array[header_slideshow_counter];
+      document.getElementById('testimony_slideshow').textContent = testimony_slideshow_array[testimony_slideshow_counter];
+      document.getElementById('testimony_slideshow_caption').textContent = testimony_slideshow_caption_array[testimony_slideshow_counter];
+    }
+
+    window.onbeforeunload = function () {                              // scroll to top of page on load
       window.scrollTo(0, 0);
     }
 
-    function picleft() {                                                       // scroll left on slideshow
-      if (i <= 0) { i = 4 }
-      else { i-- }
-      document.getElementById('pic_slideshow').style.backgroundImage = pic_slideshow[i];
-      document.getElementById('links_slideshow').href = links[i];
-    }
-
-    function picright() {                                                      // scroll right on slideshow
-      if (i >= 4) { i = 0 }
-      else { i++ }
-      document.getElementById('pic_slideshow').style.backgroundImage = pic_slideshow[i];
-      document.getElementById('links_slideshow').href = links[i];
-    }
-
     $(document).ready(function () {
-      var scrollTop = $(window).scrollTop();                              // Find distance from top of page
-      var navmenu = document.getElementById("link_menu");               // Put link menu element in a variable
-      var navelementOffset = navmenu.offsetTop;                               // Find offset of link menu element
+      var scrollTop = $(window).scrollTop();                           // find distance from top of page
+      var navmenu = document.getElementById("link_menu");              // put link menu element in a variable
+      var navelementOffset = navmenu.offsetTop;                        // find offset of link menu element
 
-      distance = (navelementOffset - scrollTop);                            // Calculate link menu from top of page
+      scroll_distance_fromtop = (navelementOffset - scrollTop);        // calculate link menu from top of page
     });
 
-    $(window).scroll(function () {
-      if ($(window).width() <= 801) {                                   //do nothing on mobile
-      }
+    $(window).scroll(function () {                                     // change nav position state based on scroll distance
+      if ($(window).width() <= 1099) { }                               // do nothing on mobile
       else {
-        var activeTop = $(window).scrollTop();                                  // Find distance from top of page
-        if (activeTop <= (distance)) {                                          // release link menu on adequate scroll distance
-          $('.link_menu').css("position", "static");
+        var activeTop = $(window).scrollTop();                         // find distance from top of page & store it 
+        if (activeTop <= (scroll_distance_fromtop)) {                  // release link menu on adequate scroll distance
+          $('.link_menu').css("position", "relative");
+          $('.link_menu').css("left", "0%");
+          $('.link_menu').css("transform", "unset");
         }
         else {
-          $('.link_menu').css("position", "fixed");                            // anchored link menu to page
-          $('.link_menu').css("top", "-15px");
-          $('.link_menu').css("left", "absolute");
+          $('.link_menu').css("position", "fixed");                    // anchored link menu to page
+          $('.link_menu').css("top", "0");
+          $('.link_menu').css("left", "50%");
+          $('.link_menu').css("transform", "translate(-50%, 0)");
         }
       }
     });
 
-    function advance() {                                                      // auto change slide
-      document.getElementById('pic_slideshow').style.backgroundImage = pic_slideshow[i];
-      document.getElementById('testimony_slideshow').textContent = testimony_slideshow[i];
-      document.getElementById('testimony_slideshow_bottom').textContent = testimony_slideshow_bottom[i];
-      document.getElementById('links_slideshow').href = links[i];
-      i++;
+    function toggleNavBar() {
+      if (bool_mobile_nav_display == false) {
+        document.getElementById("link_menu").style.display = "flex";
+        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span  class='iconify' data-icon='oi:x' width='16px' alt='Close Menu' data-inline='false'> </span>";
+        bool_mobile_nav_display = true;
+      }
+      else {
+        document.getElementById("link_menu").style.display = "none";
+        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span class='iconify' data-icon='oi:menu' alt='Navigation Menu' data-inline='false'> </span>";
+        bool_mobile_nav_display = false;
+      }
     }
-    function time() {                                                          // timer
-      i = 0;
-      setTimeout("advance()", 5000);
-      setTimeout("advance()", 10000);
-      setTimeout("advance()", 15000);
-      setTimeout("advance()", 20000);
-      setTimeout("advance()", 25000);
-      setTimeout("time()", 30000);
+
+    function toggleNavMoreLinks() {
+      if (bool_mobile_nav_more_display == false) {
+        document.getElementById("nav_drop_menu").style.display = "flex";
+        document.getElementById("nav_drop_html").innerHTML = "Close";
+        document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-top' data-inline='false'> </span>";
+        bool_mobile_nav_more_display = true;
+      }
+      else {
+        document.getElementById("nav_drop_menu").style.display = "none";
+        document.getElementById("nav_drop_html").innerHTML = "Useful Links";
+        document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-bottom' data-inline='false'> </span>";
+        bool_mobile_nav_more_display = false;
+      }
     }
+
+    $(window).resize(function () {                                     // multiple nav state display issue fixes
+      if ($(window).width() <= 1099) {
+        document.getElementById("link_menu").style.display = "none";
+        document.getElementById("nav_drop_menu").style.display = "none";
+        $('.link_menu').css("position", "fixed");
+        bool_mobile_nav_display = false;
+        bool_mobile_nav_more_display = false;
+        $('.link_menu').css("left", "50%");
+        $('.link_menu').css("transform", "translate(-50%, 0)");
+      }
+      else {
+        document.getElementById("link_menu").style.display = "flex";
+        document.getElementById("nav_drop_menu").style.display = "none";
+        bool_mobile_nav_more_display = false;
+      }
+      document.getElementById("mobile_nav_button_iconify").innerHTML = "<span class='iconify' data-icon='oi:menu' alt='Navigation Menu' data-inline='false'> </span>";
+      document.getElementById("nav_drop_html").innerHTML = "Useful Links";
+      document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-bottom' data-inline='false'> </span>";
+    });
 
     function openForm_contact() {
       document.getElementById("contactForm").style.display = "block";
@@ -118,22 +197,11 @@
       document.getElementById("backgroundForm").style.display = "block";
     }
 
-    function openNavBar() {
-      if (toggle == 0) {
-      document.getElementById("link_menu").style.display = "block";
-      toggle++;
-      }
-      else {
-      document.getElementById("link_menu").style.display = "none";  
-      toggle--;
-      }
-    }
-
-    function closeForm() {
-      document.getElementById("privateForm").style.display = "none";
-      document.getElementById("enrollForm").style.display = "none";
-      document.getElementById("contactForm").style.display = "none";
-      document.getElementById("backgroundForm").style.display = "none";
+    function closeForms() {
+      document.getElementById("privateForm").style.display = "none !important";
+      document.getElementById("enrollForm").style.display = "none !important";
+      document.getElementById("contactForm").style.display = "none !important";
+      document.getElementById("backgroundForm").style.display = "none !important";
     }
 
     function validateForm() {
@@ -161,234 +229,175 @@
 
   </script>
 
-<script async defer crossorigin="anonymous" 
-if ($(window).width() <= 801) {    } 
-else { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0" }></script>
+  <header>
 
-  <div class="background">
-    <div class="wrapper">
-
-      <button onclick="openNavBar()" class="link_mobile_button"> <span class="iconify" data-icon="oi:menu" data-inline="false"></span> </button>
-
-      <!-- banners -->
-      <!-- banners -->
-      <!-- banners -->
-      <!-- banners -->
-
-      <div class="banner_l">
-        <p>
-          <a href="donation.html" style="text-decoration:none;"> <img src="assets/donate.png" 
-              alt="go to donation" align="top" id="banner_item"> Donate</a>
-          &nbsp &nbsp
-          <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/" style="text-decoration:none;"> <img
-              src="assets/facebook.png"  alt="go to facebook" align="top" id="banner_item"> Facebook</a>
-          &nbsp &nbsp
-          <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xH6" style="text-decoration:none;"> <img src="assets/map.png"
-               alt="navigate map" align="top" id="banner_item"> 220 Mescal Ln </a>
-          &nbsp &nbsp
-        </p>
-      </div>
-      <div class="banner_r">
-        <a href="tel:+19288551022" style="text-decoration:none;"> <img src="assets/phone.png"
-            alt="call phone" align="top" id="banner_item"> (928) 855-1022 </a>
-        &nbsp &nbsp &nbsp &nbsp
-        <a class="open_button" style="text-decoration:none;" onclick="openForm_contact()"> <img src="assets/mail.png"
-             alt="go to donation" align="top" id="banner_item"> Contact Us</a>
-
-        <div class="form-popup" id="contactForm">
-          <form name="generalcontactform" method="post" class="form-container" action="contactForm.php">
-
-            Name:
-            <input type="text" class="private_form" name="name" placeholder="Joey Doe">
-
-            Phone Number:
-            <input type="tel" class="private_form" name="phone" placeholder="(928)123-1234">
-
-            Email:
-            <input type="email" class="private_form" name="email" placeholder="example@email.com">
-
-            Comment(s):
-            <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
-
-            <button type="submit" class="btn" value="Send Form" onclick="return validateForm()"> Submit </button>
-            <a href="" class="btn_cancel" onclick="closeForm()"> Close </a>
-
-          </form>
-        </div>
-        <div class="form-background" id="backgroundForm"></div>
-
-        </p>
-      </div>
-
-      <div class="header">
-        <div id="pic_left" onClick="picleft()"> </div>
-        <a id="links_slideshow" href="index.html">
-          <div id="pic_slideshow"> </div>
-        </a>
-        <div id="pic_right" onClick="picright()"> </div>
-      </div>
-
-      <!-- links -->
-      <!-- links -->
-      <!-- links -->
-      <!-- links -->
-
-      <nav>
-        <div id="link_menu" class="link_menu">
-          <div class="link"> <a class="link" href="index.html"> Home </a> </div>
-          <div class="link"> <a class="link" href="enroll.html"> Enroll Now </a> </div>
-          <div class="link"> <a class="link" href="about_us.html"> About Us </a> </div>
-          <div class="link"> <a class="link" href="parent_info.html"> Parent Info </a> </div>
-          <div class="link" id="drop_button"> <a class="link" id="drop_link"> Useful Links </a>
-            <div class="drop">
-              <div class="drop_link"> <a
-                  href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light" class="link"> Az
-                  Dep. of Health Services </a> </div>
-              <div class="drop_link"> <a href="https://www.azccrr.com/" class="link"> Childcare Resources & Refs </a>
-              </div>
-              <div class="drop_link"> <a
-                  href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance"
-                  class="link"> Dep. of Economic Security </a> </div>
-              <div class="drop_link"> <a href="https://www.firstthingsfirst.org/" class="link"> First Things First </a>
-              </div>
-              <div class="drop_link"> <a href="https://ecedassociates.com/" class="link"> Early Childhood Edu Inc. </a>
-              </div>
-              <div class="drop_link"> <a href="https://www.swhd.org/programs/health-and-development/birth-to-five-helpline/" class="link"> Birth to Five
-                  Helpline </a> </div>
-              <div class="drop_link"> <a href="https://www.zerotothree.org/" class="link"> Zero to Three </a> </div>
-              <div class="drop_link"> <a href="scholarships.html" class="link"> Scholarship Info </a> </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <!-- content -->
-      <!-- content -->
-      <!-- content -->
-      <!-- content -->
-
-      <div class="content_box">
-
-        <p>
-
-        <h1> Scholarship Page </h1>
-        <h4> Help is around the corner! &nbsp; </h2>
-
-          <br /> <br />
-
-          &nbsp;
-
-          Schooling doesn't need to be expensive or sometimes cost anything at all!
-          There are many different people and groups who want to help you and your child recieve a well balanced
-          education.
-
-          <br /> <br />
-
-          Please visit any of the links below to see if you or your child qualify.
-
-          <br /> <br /> <br />
-
-          <a href="https://www.ibescholarships.org/">
-            <h2>Institute for Better Education </h2>
-          </a>
-
-          <a href="https://acsto.org/">
-            <h2> Az Christian School Tuition Org </h2>
-          </a>
-
-          <a href="https://schoolchoicearizona.org/">
-            <h2> School Choice Arizona </h2>
-          </a>
-
-          <a href="https://www.azfoundation.org/scholarships/scholarshipfunds.aspx">
-            <h2> Az Community Foundation </h2>
-          </a>
-
-          <br /> <br /> <br />
-
-          <img src="assets/cute_scholarship.jpg" width="70%" id="pic_2" alt="scholarship picture">
-
-          <br /> <br /> <br /> <br />
-
-          </p>
-
-      </div>
-
+    <div class="banner_l text_align_center">
+      <a href="donation.html"> <img src="../assets/donate.png" alt="go to donation"> Donate</a>
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/facebook.png"
+          alt="go to facebook"> Facebook</a>
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/map.png" alt="navigate map"> 220 Mescal Ln
+      </a>
     </div>
 
-    <!-- footer -->
-    <!-- footer -->
-    <!-- footer -->
-    <!-- footer -->
+    <div class="banner_r text_align_center">
+      <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact
+      </a>
+      <a>
+        <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
+          <span id="mobile_nav_button_iconify"> <span class="iconify" data-icon="oi:menu" alt="Navigation Menu"
+              data-inline="false"> </span> </span>
+        </button>
+      </a>
+    </div>
 
-    <div class="footer_background">
-      <div class="footer_wrapper" id="footermenu">
+    <div class="container" id="header_slideshow">
+      <div id="header_slideshow_left" onClick="header_slideshow_counter_decrease()"> </div>
+      <a id="header_slideshow_links" href="index.html">
+        <div id="header_slideshow_pics"> </div>
+      </a>
+      <div id="header_slideshow_right" onClick="header_slideshow_counter_increase()"> </div>
+    </div>
 
-        <div class="footer_spacer"> </div>
-
-        <div class="footer_box">
-          <p>
-
-          <div class="footer_box_1">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FGuidingLightChristianEducationalCenter%2F&tabs=timeline&width=520&height=400&small
-      _header=true&adapt_container_width=false&hide_cover=true&show_facepile=false&appId" width="500" height="320"
-              style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
-              allow="encrypted-media"></iframe>
-          </div>
-
-          <div class="footer_box_2">
-            <h4 id="footer_header"> Real Testimonies </h4>
-            <div id="testimony_slideshow"> All quotes taken from handselected Facebook reviews. </div>
-            <div id="testimony_slideshow_bottom"> ~ L O A D I N G ~ </div>
-          </div>
-
-
-          <div class="footer_box_3">
-            <h4 id="footer_header"> From the Founder </h4>
-            My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
-            quality education, which stresses academics in a warm spirtual atmosphere.
-            <br /> <br /> <br />
-            My kindest regards,
-            <br />
-            <img text-align"left" width="150px" src="assets/signature.png" alt="Founders signature">
-          </div>
-
-          </p>
-        </div>
-
-        <div class="footer_links">
-
-          <div style="padding-bottom:10px;" id="footer_header">More From Us </div>
-
-          <a id="footer_link" href="index.html"> Home </a>
-          |
-          <a id="footer_link" href="enroll.html"> Enroll </a>
-          |
-          <a id="footer_link" href="about_us.html"> About Us </a>
-          |
-          <a id="footer_link" href="parent_info.html"> Parent Info </a>
-          |
-          <a id="footer_link" href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> Facebook </a>
-          |
-          <a id="footer_link" href="donation.html"> Donation </a>
-          |
-          <a id="footer_link" href="scholarships.html"> Scholarships </a>
-          |
-          <a id="footer_link" href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az-DHS
+    <nav class="link_menu" id="link_menu">
+      <div class="link"> <a href="index.html"> Home </a> </div>
+      <div class="link"> <a href="enroll.html"> Enroll Now </a> </div>
+      <div class="link"> <a href="about_us.html"> About Us </a> </div>
+      <div class="link"> <a href="parent_info.html"> Parent Info </a> </div>
+      <div class="link"> <button id="nav_drop_button" onclick="toggleNavMoreLinks()">
+          <span id="nav_drop_html"> Useful Links </span>
+          <span id="nav_drop_iconify"> <span class="iconify" width="15px" data-icon="oi:caret-bottom"
+              data-inline="false"> </span> </span>
+        </button>
+        <div id="nav_drop_menu">
+          <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az Dep. of Health
+            Services </a>
+          <a href="https://www.azccrr.com/"> Childcare Resources & Refs </a>
+          <a href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance"> Dep. of
+            Economic Security </a>
+          <a href="https://www.firstthingsfirst.org/"> First Things First </a>
+          <a href="https://ecedassociates.com/"> Early Childhood Edu Inc. </a>
+          <a href="https://www.swhd.org/programs/health-and-development/birth-to-five-helpline/"> Birth to Five Helpline
           </a>
-          |
-          <a id="footer_link" class="open_button" onclick="openForm_contact()"> Contact Us </a>
-
+          <a href="https://www.zerotothree.org/"> Zero to Three </a>
+          <a href="scholarships.html"> Scholarship Info </a>
         </div>
+      </div>
+    </nav>
 
-        <div class="footer_bottom">
-          <p> &copy; GLCEC Org. All Rights Reserved 2020-2021 | <a id="footer_link" href="https://iBigital.com"> Created by Bigital </a> </p>
-        </div>
+  </header>
 
+  <section class="page_title">
+    <div class="container">
+      <h1> Scholarship Page </h1>
+      <h4> Help is around the corner! &nbsp; </h4>
+      <p>
+        Schooling doesn't need to be expensive or sometimes cost anything at all!
+        There are many different people and groups who want to help you and your child recieve a well balanced
+        education.
+      </p>
+      <p> Please visit any of the links below to see if you or your child qualify. </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <a href="https://www.ibescholarships.org/">
+        <h2>Institute for Better Education </h2>
+      </a>
+      <a href="https://acsto.org/">
+        <h2> Az Christian School Tuition Org </h2>
+      </a>
+      <a href="https://schoolchoicearizona.org/">
+        <h2> School Choice Arizona </h2>
+      </a>
+      <a href="https://www.azfoundation.org/scholarships/scholarshipfunds.aspx">
+        <h2> Az Community Foundation </h2>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <img src="../assets/cute_scholarship.jpg" class="border_primary" alt="scholarship picture">
+    </div>
+  </section>
+
+  <footer>
+    <div style="padding-top:200px;"> </div> <!-- Footer positioning 'fix' linebreak -->
+
+    <div id="footer_cards_container">
+      <div class="footer_card_large border_primary">
+        <iframe
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FGuidingLightChristianEducationalCenter%2F&tabs=timeline&width=520&height=400&small_header=true&adapt_container_width=false&hide_cover=true&show_facepile=false&appId"
+          style="border:none;overflow:hidden;height:100%;width:100%" id="facebook_iframe" class="border_primary"
+          scrolling="yes" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
+      </div>
+
+      <div class="footer_card_standard border_primary text_align_center">
+        <h4>Real Testimonies</h4>
+        <p>
+        <div id="testimony_slideshow"> All quotes taken from handselected Facebook reviews. </div>
+        <div id="testimony_slideshow_caption" style="padding-top: 40px;"> L O A D I N G </div>
+        </p>
+      </div>
+
+      <div class="footer_card_standard border_primary text_align_center">
+        <h4>From the Founder</h4>
+        <p>
+          My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
+          quality education, which stresses academics in a warm spirtual atmosphere.
+          <br /> <br />
+          My kindest regards,
+        </p>
+        <img src="../assets/signature.png" alt="Founders signature">
       </div>
     </div>
 
+    <div class="text_align_center" id="footer_sitemap">
+      <div>
+        <h4> Sitemap </h4>
+
+        <a href="index.html"> Home </a> |
+        <a href="enroll.html"> Enroll </a> |
+        <a href="about_us.html"> About Us </a> |
+        <a href="parent_info.html"> Parent Info </a> |
+        <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> Facebook </a> |
+        <a href="donation.html"> Donation </a> |
+        <a href="scholarships.html"> Scholarships </a> |
+        <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az-DHS </a> |
+        <a class="open_cursor" onclick="openForm_contact()"> Contact Us </a>
+      </div>
+
+      <div style="background-color: var(--clr-footer-c); padding:7px 0;"> </div> <!-- Footer colored linebreak -->
+      <div style="background-color: var(--clr-footer-b); padding:5px 0;"> </div> <!-- Footer 'background' linebreak -->
+
+      <div style="background-color: var(--clr-footer-c);">
+        <p> &copy; GLCEC Org. All Rights Reserved 2020-2021 | <wbr> <a href="https://iBigital.com"> Created by Bigital
+          </a> </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="form-popup border_primary" id="contactForm">
+    <form name="generalcontactform" method="post" class="form-container" action="../forms/contactForm.php">
+      <span class="text_align_center"> Contact Form</span>
+      <span> Name: </span>
+      <input type="text" class="private_form" name="name" placeholder="Joey Doe">
+      <span> Phone Number: </span>
+      <input type="tel" class="private_form" name="phone" placeholder="(928)123-1234">
+      <span> Email: </span>
+      <input type="email" class="private_form" name="email" placeholder="example@email.com">
+      <span> Comment(s): </span>
+      <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
+      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit
+      </button>
+      <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
+    </form>
   </div>
+  <div class="form-background" id="backgroundForm"> </div>
+
 </body>
 
 </html>

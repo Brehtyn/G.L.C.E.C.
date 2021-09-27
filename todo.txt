@@ -1,11 +1,15 @@
  ~~~~~~~~~~~~ General ~~~~~~~~~~~~ 
 
-- give header slideshow bubble selections
 - add timer delay on header slideshow scroll
-
- ~~~~~~~~~~~~ About Us ~~~~~~~~~
-
-- sharons pic
+- css animations 
+	-nav_button
+	-nav_menu
+	-header_slideshow
+	-photogallery_slideshow
+	-testimony_slideshow
+	-some text reveal
 - photogallery 
+- private & enroll forms
+- sharons pic
 
-- *final approval*
+- *final meeting*
