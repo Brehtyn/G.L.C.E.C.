@@ -301,16 +301,15 @@
   </header>
 
   <section class="page_title">
-    <div class="container">
+    <div class="container text_align_center">
       <h1> Parent Information & Services </h1>
       <p> Page Updated : 06 / 01 / 2021 </p>
-      <p> Our fax number is 928-855-3291. </p>
-      <p> For complaints, scroll to the bottom of the page. </p>
+      <p> Our fax number is 928-855-3291. <br/> For complaints, please scroll to the bottom of the page. </p>
       <img class="border_primary" src="../assets/services.jpg" alt="kids playing together">
     </div>
   </section>
 
-  <section>
+  <section class="blue_background">
     <div class="container">
       <h2> Snack Schedule </h2>
       <object data="../assets/pdfs/snacks.pdf" alt="snack menu schedule" type="application/pdf"
@@ -334,7 +333,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="yellow_background">
     <div class="container">
       <h2> Complaints & Support </h2>
       <p>
@@ -342,10 +341,15 @@
         If for any reason you need to contact us with a serious complaint or
         private question <a onclick="openForm_private()"> please click here</a>.
       </p>
-      <p> We urge parents or guardians to contact 911 regarding any unlawful or criminal violations. </p>
     </div>
   </section>
 
+
+  <section class="text_align_center">
+    <div class="container">
+      <p> We urge parents or guardians to contact 911 regarding any unlawful or criminal violations. </p>
+    </div>
+  </section>
 
   <footer>
     <div style="padding-top:200px;"> </div> <!-- Footer positioning 'fix' linebreak -->
@@ -406,7 +410,7 @@
 
   <div class="form-popup border_primary" id="contactForm">
     <form name="generalcontactform" method="post" class="form-container" action="../forms/contactForm.php">
-      <span class="text_align_center"> Contact Form</span>
+      <span class="text_align_center"> Contact Form </span>
       <span> Name: </span>
       <input type="text" class="private_form" name="name" placeholder="Joey Doe">
       <span> Phone Number: </span>
@@ -421,24 +425,19 @@
     </form>
   </div>
 
-
-  <!-- Fix this shit -->
-
-  <div class="form-popup" id="privateForm">
+  <div class="form-popup border_primary" id="privateForm">
     <form name="privatecontactform" method="post" class="form-container" action="../forms/privateForm.php">
-
-      Name:
-      <input type="text" class="private_form" name="private_name" placeholder="alias">
-      Phone Number:
+      <span class="text_align_center"> Private Inquiry Form </span>
+      <span> Name: </span>
+      <input type="text" class="private_form" name="private_name" placeholder="Alias">
+      <span> Phone Number: </span>
       <input type="tel" class="private_form" name="private_phone" placeholder="optional">
-      Email:
+      <span> Email: </span>
       <input type="email" class="private_form" name="private_email" placeholder="optional">
-      Concerns(s):
+      <span> Concerns(s): </span>
       <textarea type="text" class="private_form" name="private_message"> </textarea>
-
-      <button type="submit" class="btn" value="Send Form" onclick="return private_validateForm()"> Submit </button>
-      <a href="" onclick="closeForm()"> Close </a>
-
+      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return private_validateForm()"> Submit </button>
+      <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
     </form>
   </div>
 

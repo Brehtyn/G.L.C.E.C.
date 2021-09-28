@@ -288,7 +288,7 @@
   </header>
 
   <section class="page_title">
-    <div class="container">
+    <div class="container text_align_center">
       <h1> About Our School </h1>
       <p> Learn about Guiding Light’s founding, enjoy a picture gallery, and even meet some of the staff! </p>
       <p> To view our Arizona state license, please
@@ -297,7 +297,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="yellow_background">
     <div class="container">
       <h2> Our Founding & History </h2>
       <p>
@@ -308,9 +308,12 @@
         we believe our methods are time-tested and will continue to be one of the brightest oppournitiest Lake Havasu
         City can provide for any child.
       </p>
-      <img src="../assets/history.jpg" alt="Picture of Guiding Light Christian Education Center when it first opened">
-      <img src="../assets/history2.jpg"
-        alt="Archived News Herald Clipping. Visible text reads: 'Wednesday, June 12 1985 | Christian preschool offers diversity'">
+      <div class="split">
+        <img src="../assets/history.jpg" id="history_pic"
+          alt="Picture of Guiding Light Christian Education Center when it first opened">
+        <img src="../assets/history2.jpg" id="history_pic"
+          alt="Archived News Herald Clipping. Visible text reads: 'Wednesday, June 12 1985 | Christian preschool offers diversity'">
+      </div>
       <p>
         Guiding Light has been blessed with oppourtinues to grow our school & expand the program to not only
         primary schooling, but increase the number of classrooms in hope to accomodate all of Lake Havasu's important
@@ -328,31 +331,36 @@
     </div>
   </section>
 
-  <section>
+  <section class="blue_background">
     <div class="container">
       <h2> The Education </h2>
       <img src="../assets/philosphy.jpg" alt="Kids focusing on their work" class="border_primary">
-      <p>
-        The core curriculum consists of reading, math, oral language, and science. Additionally, children experience
-        many oppourtunities to learn skills designed to compliment the core curriculum including:
-        art, music, physical activity, Bible study, social developement, computer skills, and foreign languages.
-      </p>
-      <p>
-        We believe in our students developing at their own pace. Despite this, we also feel that it is important that
-        the students understand the grading system that is used to provide preparation for the advancded education
-        beyond
-        GLCEC. Teachers may make curriculum adoptions at any time and grade the students with in the guidelines of those
-        adoptions.
-      </p>
+      <div class="split">
+        <p>
+          The core curriculum consists of reading, math, oral language, and science. Additionally, children experience
+          many oppourtunities to learn skills designed to compliment the core curriculum including:
+          art, music, physical activity, Bible study, social developement, computer skills, and foreign languages.
+        </p>
+        <p>
+          We believe in our students developing at their own pace. Despite this, we also feel that it is important that
+          the students understand the grading system that is used to provide preparation for the advancded education
+          beyond
+          GLCEC. Teachers may make curriculum adoptions at any time and grade the students with in the guidelines of
+          those
+          adoptions.
+        </p>
+      </div>
     </div>
   </section>
 
   <section>
     <div class="container">
       <h2> Meet the Front Office! </h2>
-      <div class="profile">
-        <h3> Nadine Bartels </h3>
-        <h4> Director </h4>
+      <div class="profile_card">
+        <span>
+          <h3> Nadine Bartels </h3>
+          <h4> Director </h4>
+        </span>
         <img src="../assets/teachers/bartels.jpg" alt="Picture of the Teacher Nadine Bartels" class="border_primary">
         <p>
           My name is Nadine Bartels and I’ve lived in Lake Havasu city since 1976. I never dreamed I’d be the
@@ -370,9 +378,11 @@
         </p>
       </div>
 
-      <div class="profile">
-        <h3> Shanta Abbott </h3>
-        <h5> Executive Administrator </h5>
+      <div class="profile_card">
+        <span> 
+          <h3> Shanta Abbott </h3>
+          <h4> Executive Administrator </h4>
+        </span>
         <img src="../assets/teachers/abbott.jpg" alt="Picture of the Teacher Shanta Abbott" class="border_primary">
         <p>
           Shanta provides administrative business oversight for the company.
@@ -381,23 +391,11 @@
         </p>
       </div>
 
-      <!-- 
-      <div class="profile">
-        <h3> Raelene Hanna </h3>
-        <h5> Office Administrator </h5>
-        </h5>
-        <img src="../assets/teachers/rhanna.jpg" alt="Picture of the Teacher Raelene Hanna" class="border_primary">
-        <p>
-          Raelene handles day to day office dealings.
-          <br /> <br />
-          A more detailed future description will be avaliable later!
-        </p>
-      </div> 
-      -->
-
-      <div class="profile">
-        <h3> Sharon Kewish </h3>
-        <h5> Administrator Assistant </h5>
+      <div class="profile_card">
+        <span> 
+          <h3> Sharon Kewish </h3>
+          <h4> Administrator Assistant </h4>
+        </span>
         <img src="../assets/teachers/kewish.jpg" alt="Picture of the Teacher Sharon Kewish" class="border_primary">
         <p>
           Sharon supports the front office and acts as a point of contact for visitors.
@@ -407,9 +405,11 @@
 
       </div>
 
-      <div class="profile">
-        <h3> Floriana Hanna </h3>
-        <h4> The Founding Principal </h4>
+      <div class="profile_card">
+        <span>
+          <h3> Floriana Hanna </h3>
+          <h4> The Founding Principal </h4>
+        </span>
         <img src="../assets/teachers/fhanna.jpg" alt="Picture of the Teacher Floriana Hanna" class="border_primary">
         <p> It is my privilege to welcome you as the founder of Guiding Light Christian Educational Center. My dream
           began in 1985 when I
@@ -495,8 +495,7 @@
       <input type="email" class="private_form" name="email" placeholder="example@email.com">
       <span> Comment(s): </span>
       <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
-      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit
-      </button>
+      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit </button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
     </form>
   </div>

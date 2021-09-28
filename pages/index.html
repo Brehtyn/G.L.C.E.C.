@@ -284,30 +284,35 @@
         </div>
       </div>
     </nav>
+
   </header>
 
   <section class="page_title">
     <div class="container">
-      <h1>Welcome to Guiding Light </h1>
-      <p class="text_align_center">Thank you for considering our school!</p>
+      <h1> Welcome to Guiding Light </h1>
+      <h3 style="padding-bottom: unset;">Thank you for considering our school! </h3>
       <p>
         Our mission since the school's inception is to provide Lake Havasu City a high quality educational and
         spiritual program for all children, in a warm and loving atmosphere.
       </p>
       <img class="border_primary" src="../assets/entree.JPG" alt="Entrance of front office.">
-      <p> The front office is open to any and all, at least during open hours!</p>
+      <p class="caption"> The front office is open to any and all, at least during open hours!</p>
     </div>
   </section>
 
-  <section>
+  <section class="blue_background">
     <div class="container">
-      <p>
-        We believe the children of today are our future! Our work is essential to a student's success in education and
-        in their lives.
-        The school's facility can provide for student’s ages 1 year through 10 years old.
-      </p>
-      <img class="border_primary" src="../assets/school_overview.jpg"
-        alt="American flag flapping infront of the preschool">
+      <h2> Who We Are </h2>
+      <div class="split">
+        <p class="text_align_center">
+          We believe the children of today are our future! Our work is essential to a student's success in education and
+          in their lives.
+          <br /> <br />
+          The school's facility can provide for student’s ages 1 year through 10 years old.
+        </p>
+        <img class="border_primary" src="../assets/school_overview.jpg"
+          alt="American flag flapping infront of the preschool">
+      </div>
       <p>
         Guiding Light Christian Education Center teaches children to become responsible adults who enjoy their work and
         their lives.
@@ -328,15 +333,14 @@
   <section>
     <div class="container">
       <h2> Come Visit Us </h2>
-      <iframe class="text_align_center border_primary" id="homepage_map"
+      <iframe class="border_primary" id="iframe_map"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3288.712103231022!2d-114.324492!3d34.484827!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d1f2701e078b3d%3A0x3e22f6f2e3165d95!2sGuiding%20Light%20Christian%20Educational%20Center!5e0!3m2!1sen!2sus!4v1576631745211!5m2!1sen!2sus"
-        allowfullscreen="true" width="100%"></iframe>
-      <p class="text_align_center" id="caption">Guiding Light is open from 6:30 am to 5:30 pm, Monday through Friday,
-        year round.</p>
+        allowfullscreen="true"></iframe>
+      <p class="caption"> Guiding Light is open from 6:30 am to 5:30 pm, Monday through Friday, year round.</p>
     </div>
   </section>
 
-  <section>
+  <section class="yellow_background">
     <div class="container">
       <h2> Enroll Today </h2>
       <p>
@@ -354,31 +358,29 @@
   <section>
     <div class="container">
       <h2> Parent Engagment </h2>
-      <p>
+      <p style="padding-bottom: unset;">
         Please consider visiting one of our trusted partners by utilizing the Useful Links tab located
         at the top right of this page.
       </p>
-      <img class="border_primary" src="../assets/engagment.jpg" alt="parents assisting children view hot-air balloons">
-      <p>
-        Parent involvement is very important at Guiding Light Christian Educational Center! We encourage parent
-        participation to ensure a close unity among parents, children and educators.
-        This will help enrich your child's early educational experience. There will be various special activities
-        scheduled throughout the year. We encourage all parents to attend!
-      </p>
-      <p>
+      <div class="split">
+        <img class="border_primary" src="../assets/engagment.jpg"
+          alt="parents assisting children view hot-air balloons">
+        <p>
+          Parent involvement is very important at Guiding Light Christian Educational Center! We encourage parent
+          participation to ensure a close unity among parents, children and educators.
+          This will help enrich your child's early educational experience. There will be various special activities
+          scheduled throughout the year. We encourage all parents to attend!
+        </p>
+      </div>
+      <p class="text_align_center">
         For monthly calenders and snack schedules, please click <a href="parent_info.html"> here </a> to visit our
-        Parent Info page.
+        Parent Information page.
       </p>
-      <p>
+      <p class="text_align_center">
         For the most up-to-date information and engagement, you can visit our Facebook page
         <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> here.</a>
       </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p class="text_align_center"> ❤ </p>
+      <p class="text_align_center"> ❤ Thank you! ❤ </p>
     </div>
   </section>
 
@@ -450,8 +452,7 @@
       <input type="email" class="private_form" name="email" placeholder="example@email.com">
       <span> Comment(s): </span>
       <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
-      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit
-      </button>
+      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit </button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
     </form>
   </div>
