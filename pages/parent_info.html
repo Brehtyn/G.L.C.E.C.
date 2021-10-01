@@ -25,7 +25,7 @@
   <title>Guiding Light Parent Information</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="../style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="../assets/favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/common/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"
     }> </script>
@@ -78,7 +78,7 @@
     }
 
     if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
-      setInterval(header_slideshow_counter_auto_increase, 2500);
+      setInterval(header_slideshow_counter_auto_increase, 3500);
     }
     else {
     }
@@ -245,16 +245,16 @@
   <header>
 
     <div class="banner_l text_align_center">
-      <a href="donation.html"> <img src="../assets/donate.png" alt="go to donation"> Donate</a>
-      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/facebook.png"
+      <a href="donation.html"> <img src="../assets/common/donate.png" alt="go to donation"> Donate</a>
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/common/facebook.png"
           alt="go to facebook"> Facebook</a>
-      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/map.png" alt="navigate map"> 220 Mescal Ln
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220 Mescal Ln
       </a>
     </div>
 
     <div class="banner_r text_align_center">
-      <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact
+      <a href="tel:+19288551022"> <img src="../assets/common/phone.png" alt="call phone"> (928) 855-1022 </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation"> Contact
       </a>
       <a>
         <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
@@ -324,6 +324,22 @@
   <section>
     <div class="container">
       <h2> Events </h2>
+      <p> We are closed the following days throughout the year : </p>
+      <span class="left_aligned_list"> 
+        <li> New Year’s Eve and Day (2 days) </li>
+        <li> Good Friday </li>
+        <li> Memorial Day </li>
+        <li> 4th of July </li>
+        <li> 
+          Back to School Teacher In-service 
+          <br/>(Friday prior to the public-school 1st day of new school year) 
+        </li>
+        <li> Labor Day </li>
+        <li> Thanksgiving (Thursday & Friday) </li>
+        <li> Christmas Eve and Day (2 days) </li>
+        <p> If the holiday falls on a weekend, it will be observed during the week on either a Friday or Monday. There are no deductions, credit or exchange given for these days. </p>
+        <p class="text_align_center"> (These days are not covered by DES.) </p>
+     </span>
       <object data="../assets/pdfs/events.pdf" alt="events posted" type="application/pdf"
         class="pdf height_pdf border_primary">
         <p> It appears you don't have a PDF plugin for this browser. No biggie... you can
@@ -371,14 +387,14 @@
       </div>
 
       <div class="footer_card_standard border_primary text_align_center">
-        <h4>From the Founder</h4>
+       <h4 class="remove_padding_bottom">From the Founder</h4>
         <p>
           My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
           quality education, which stresses academics in a warm spirtual atmosphere.
           <br /> <br />
           My kindest regards,
         </p>
-        <img src="../assets/signature.png" alt="Founders signature">
+        <img src="../assets/common/signature.png" alt="Founders signature">
       </div>
     </div>
 
@@ -434,7 +450,7 @@
       <input type="tel" class="private_form" name="private_phone" placeholder="optional">
       <span> Email: </span>
       <input type="email" class="private_form" name="private_email" placeholder="optional">
-      <span> Concerns(s): </span>
+      <span> Concern(s): </span>
       <textarea type="text" class="private_form" name="private_message"> </textarea>
       <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return private_validateForm()"> Submit </button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>

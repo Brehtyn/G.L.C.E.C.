@@ -25,7 +25,7 @@
   <title>Guiding Light Enrollment</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="../style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="../assets/favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/common/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"
     }> </script>
@@ -78,7 +78,7 @@
     }
 
     if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
-      setInterval(header_slideshow_counter_auto_increase, 2500);
+      setInterval(header_slideshow_counter_auto_increase, 3500);
     }
     else {
     }
@@ -280,16 +280,16 @@
   <header>
 
     <div class="banner_l text_align_center">
-      <a href="donation.html"> <img src="../assets/donate.png" alt="go to donation"> Donate</a>
-      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/facebook.png"
+      <a href="donation.html"> <img src="../assets/common/donate.png" alt="go to donation"> Donate</a>
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/common/facebook.png"
           alt="go to facebook"> Facebook</a>
-      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/map.png" alt="navigate map"> 220 Mescal Ln
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220 Mescal Ln
       </a>
     </div>
 
     <div class="banner_r text_align_center">
-      <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact
+      <a href="tel:+19288551022"> <img src="../assets/common/phone.png" alt="call phone"> (928) 855-1022 </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation"> Contact
       </a>
       <a>
         <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
@@ -465,12 +465,9 @@
     <div class="container text_align_center">
       <h2> Ready to Enroll Now? </h2>
       <p> We are so excited for your interest in our school! </p>
-      <p>
-        To begin, we just need to know a few things about the child(ren) you intend to enroll and their legal guardian.
-        To contact us regarding registration,
-      </p>
-      <p><a class="open_button" onclick="openForm_enroll()"> please click here </a></p>
-      <p> to begin our simple registration request form. Form is also available on request from office@glcec.org. </p>
+      <p> To begin, we just need to know a few things about the child(ren) you intend to enroll and their legal guardian. </p>
+      <p><button class="fancy_button border_primary open_cursor" onclick="openForm_enroll()"> <span> Enroll Here ! </span></button></p>
+      <p> Tap above for our simple online registration form, which is available on request from office@glcec.org. </p>
     </div>
   </section>
 
@@ -494,14 +491,14 @@
       </div>
 
       <div class="footer_card_standard border_primary text_align_center">
-        <h4>From the Founder</h4>
+       <h4 class="remove_padding_bottom">From the Founder</h4>
         <p>
           My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
           quality education, which stresses academics in a warm spirtual atmosphere.
           <br /> <br />
           My kindest regards,
         </p>
-        <img src="../assets/signature.png" alt="Founders signature">
+        <img src="../assets/common/signature.png" alt="Founders signature">
       </div>
     </div>
 
@@ -554,32 +551,33 @@
         <p> Child's Information </p>
       </span>
       <span> Name: </span>
-      <input type="text" class="private_form" name="child_name" placeholder="Baby Doe">
+      <input type="text" class="private_form" name="child_name" placeholder="Example: Baby Doe">
       <span> Birth Date: </span>
-      <input type="date" class="private_form" name="child_birthdate" placeholder="01/01/2015">
+      <input type="date" class="private_form" name="child_birthdate">
       <span> Gender: </span>
-      <input type="text" class="private_form" name="child_gender">
+      <input type="text" class="private_form" name="child_gender" placeholder="Example: Female">
       <span> Is your child potty trained?: </span>
-      <span> Yes <input type="radio" class="private_form" value='Yes' name="child_pt"> No <input type="radio"
+      <span class="text_align_center"> Yes <input type="radio" class="private_form" value='Yes' name="child_pt"> No <input type="radio"
           class="private_form" value='No' name="child_pt"> </span>
+      <a class="border_primary" id="fake_button" style="margin-top:5%; background-color:var(--clr-primary-b);" href="" onclick="additionalChild()"> Add Additional Child </a>
       <br />
       <span class="form_title">
         <p> Guardian Information </p>
       </span>
       <span> Name: </span>
-      <input type="text" class="private_form" name="name" placeholder="John Doe">
+      <input type="text" class="private_form" name="name" placeholder="Example: Joey Doe">
       <span> Phone Number: </span>
-      <input type="tel" class="private_form" name="phone" placeholder="(928) 000-0000">
+      <input type="tel" class="private_form" name="phone" placeholder="Example: (928) 000-0000">
       <span> Work: </span>
-      <input type="tel" class="private_form" name="work_phone" placeholder="(928) 000-0000">
+      <input type="tel" class="private_form" name="work_phone" placeholder="Example: (928) 000-0000">
       <span> Email: </span>
-      <input type="email" class="private_form" name="email" placeholder="example@email.com">
+      <input type="email" class="private_form" name="email" placeholder="Example: example@email.com">
       <span> Program: </span>
-      <input type="text" class="private_form" name="program" placeholder=" Interested in 5 Day ">
+      <input type="text" class="private_form" name="program" placeholder="Example: Interested in 5 Day">
       <span> Date Needed: </span>
-      <input type="date" class="private_form" name="date_needed" placeholder="01/01/2020">
+      <input type="date" class="private_form" name="date_needed">
       <span> Referred By: </span>
-      <input type="text" class="private_form" name="referral" placeholder="name, website, or company">
+      <input type="text" class="private_form" name="referral" placeholder="Example: Smith family or Google">
       <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm_enroll()">Submit</button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
     </form>

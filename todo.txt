@@ -1,16 +1,16 @@
  ~~~~~~~~~~~~ General ~~~~~~~~~~~~ 
-
-- add timer delay on header slideshow scroll
-(possible add pause button via logo)
 - css animations 
-	-nav_button
-	-nav_menu drop_menu
 	-header_slideshow
-	-photogallery_slideshow
 	-testimony_slideshow
 	-some text reveal
-- photogallery 
-- teacher_card styling
+
+- enroll add addition child
+- php validation
+
+- presentation powerpoint
+- *final meeting*
+
+- email forwards
 - sharons pic
 
-- *final meeting*
+

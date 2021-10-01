@@ -25,7 +25,7 @@
   <title>Guiding Light About Us</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="../style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="../assets/favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/common/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"
     }> </script>
@@ -78,7 +78,7 @@
     }
 
     if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
-      setInterval(header_slideshow_counter_auto_increase, 2500);
+      setInterval(header_slideshow_counter_auto_increase, 3500);
     }
     else {
     }
@@ -229,19 +229,90 @@
 
   </script>
 
+  <!-- Photoswipe Dependencies -->
+  <link rel="stylesheet" href="../assets/photoswipe/photoswipe.css"> 
+  <link rel="stylesheet" href="../assets/photoswipe/default-skin/default-skin.css"> 
+  <script src="../assets/photoswipe/photoswipe.js" defer></script> 
+  <script src="../assets/photoswipe/photoswipe-ui-default.js" defer></script> 
+
+  <script defer>
+
+    function openPhotoSwipe() {
+      var pswpElement = document.querySelectorAll('.pswp')[0];
+
+      // build items array
+      var items = [
+        {
+          title: 'children hanging from domed playground equipment.',
+          src: '../assets/intro.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        },
+        {
+          title: 'A shot of the preschool with the American Flag.',
+          src: '../assets/school_overview.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        },
+        {
+          title: 'Guardians watching over students participating in the Balloonfest.',
+          src: '../assets/engagment.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        },
+        {
+          title: 'Kids playing during recess with sand activity.',
+          src: '../assets/services.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        },
+        {
+          title: 'Two happy children smiling.',
+          src: '../assets/thankful.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        },
+        {
+          title: 'Swing set, benches, playground sets and other outdoor equipment.',
+          src: '../assets/playground.jpg',
+          msrc: 'path/to/small-image.jpg', // small image placeholder,
+          w: 964,
+          h: 1024
+        }
+      ];
+
+      var options = {
+        history: false,
+        focus: true,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+      };
+
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
+    };
+
+  </script>
+
   <header>
 
     <div class="banner_l text_align_center">
-      <a href="donation.html"> <img src="../assets/donate.png" alt="go to donation"> Donate</a>
-      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/facebook.png"
+      <a href="donation.html"> <img src="../assets/common/donate.png" alt="go to donation"> Donate</a>
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/common/facebook.png"
           alt="go to facebook"> Facebook</a>
-      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/map.png" alt="navigate map"> 220 Mescal Ln
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220 Mescal Ln
       </a>
     </div>
 
     <div class="banner_r text_align_center">
-      <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact
+      <a href="tel:+19288551022"> <img src="../assets/common/phone.png" alt="call phone"> (928) 855-1022 </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation"> Contact
       </a>
       <a>
         <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
@@ -325,9 +396,58 @@
   <section>
     <div class="container">
       <h2> Picture Gallery </h2>
-      <img src="assets/intro.jpg" alt="children hanging from domed playground equipment">
-      <img src="assets/school_overview.jpg" alt="A shot of the preschool with the American Flag">
-      <img src="assets/playground.jpg" alt="Swing set, benches, playground sets and other outdoor equipment">
+      <div class="gallery_collage text_align_center remove_padding_bottom">
+        <img src="../assets/school_overview.jpg" alt="A shot of the preschool with the American Flag.">
+        <img src="../assets/intro.jpg" alt="Children hanging from domed playground equipment.">
+        <img src="../assets/playground.jpg" alt="Swing set, benches, playground sets and other outdoor equipment.">
+      </div>
+      <!-- Root element of PhotoSwipe. Must have class pswp. -->
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+          <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+              <div class="pswp__counter"></div>
+              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+              <button class="pswp__button pswp__button--share" title="Share"></button>
+              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+              <div class="pswp__preloader">
+                <div class="pswp__preloader__icn">
+                  <div class="pswp__preloader__cut">
+                    <div class="pswp__preloader__donut"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+              <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="split"> 
+      <p class="text_align_center" style="font-size: var(--font-size-small);"> 
+        Tap the 'Open Gallery' button to view all our pictures!
+        Once the gallery is open, tap the arrows icons to navigate. Swiping or keyboard arrow keys works as well. 
+        To close the gallery, use the <span class='iconify' data-icon='oi:x' width='12px' alt='X' data-inline='false'> </span> button located at the top right of the gallery or scroll your mouse wheel.
+      </p>
+      <button class="fancy_button border_primary open_cursor" onclick="openPhotoSwipe()"><span> Open Gallery </span></button>
+      </div>
+      <p class="text_align_center"> If you have any questions or additons to our gallery, do not hesitate to message or call the front office!</p>
     </div>
   </section>
 
@@ -357,70 +477,70 @@
     <div class="container">
       <h2> Meet the Front Office! </h2>
       <div class="profile_card">
+        
         <span>
-          <h3> Nadine Bartels </h3>
+          <h2> Nadine Bartels </h2>
           <h4> Director </h4>
+          <p>
+            My name is Nadine Bartels and I’ve lived in Lake Havasu city since 1976. I never dreamed I’d be the
+            director of this place I love so much, but the Lord works in mysterious ways. One day in 1986 I applied for
+            a job at Guiding Light,
+            A job that truly changed my life. The Lord puts us right where we are needed. To my role as director I bring
+            34 years of early education & elementary education experience most of it direct classroom time,
+            and the vast majority of it here at Guiding Light. I’m the proud mother of three Guiding Light alumni, each
+            successful in their
+            chosen field . I believe because of the strong foundations and ethics instilled here at Guiding Light. My
+            heart is full of joy as
+            I continue the journey our founder began in 1985. I cannot think of anything I want to do more than to
+            continue to guide Lake Havasu
+            city’s children.
+          </p>
         </span>
-        <img src="../assets/teachers/bartels.jpg" alt="Picture of the Teacher Nadine Bartels" class="border_primary">
-        <p>
-          My name is Nadine Bartels and I’ve lived in Lake Havasu city since 1976. I never dreamed I’d be the
-          director of this place I love so much, but the Lord works in mysterious ways. One day in 1986 I applied for
-          a job at Guiding Light,
-          A job that truly changed my life. The Lord puts us right where we are needed. To my role as director I bring
-          34 years of early education & elementary education experience most of it direct classroom time,
-          and the vast majority of it here at Guiding Light. I’m the proud mother of three Guiding Light alumni, each
-          successful in their
-          chosen field . I believe because of the strong foundations and ethics instilled here at Guiding Light. My
-          heart is full of joy as
-          I continue the journey our founder began in 1985. I cannot think of anything I want to do more than to
-          continue to guide Lake Havasu
-          city’s children.
-        </p>
+        <img src="../assets/teachers/bartels.jpg" alt="Picture of the Director Nadine Bartels" class="border_primary">
       </div>
 
       <div class="profile_card">
         <span> 
-          <h3> Shanta Abbott </h3>
+          <h2> Shanta Abbott </h2>
           <h4> Executive Administrator </h4>
+          <p>
+            Shanta provides administrative business oversight for the company, handling payroll and other budgeting responsibilies.
+            <br /> <br />
+            A more detailed future description will be avaliable later! 
+          </p>
         </span>
-        <img src="../assets/teachers/abbott.jpg" alt="Picture of the Teacher Shanta Abbott" class="border_primary">
-        <p>
-          Shanta provides administrative business oversight for the company.
-          <br /> <br />
-          A more detailed future description will be avaliable later!
-        </p>
+        <img src="../assets/teachers/abbott.jpg" alt="Picture of the Administrator Shanta Abbott" class="border_primary">
       </div>
 
       <div class="profile_card">
         <span> 
-          <h3> Sharon Kewish </h3>
+          <h2> Sharon Kewish </h2>
           <h4> Administrator Assistant </h4>
+          <p>
+            Sharon supports the front office and acts as a point of contact for visitors.
+            <br /> <br />
+            A more detailed future description will be avaliable later!
+          </p>
         </span>
         <img src="../assets/teachers/kewish.jpg" alt="Picture of the Teacher Sharon Kewish" class="border_primary">
-        <p>
-          Sharon supports the front office and acts as a point of contact for visitors.
-          <br /> <br />
-          A more detailed future description will be avaliable later!
-        </p>
-
       </div>
-
+      
       <div class="profile_card">
         <span>
-          <h3> Floriana Hanna </h3>
+          <h2> Floriana Hanna </h2>
           <h4> The Founding Principal </h4>
+          <p> It is my privilege to welcome you as the founder of Guiding Light Christian Educational Center. My dream
+            began in 1985 when I
+            developed our unique facility. To this day I continue to offer each student a quality education in a
+            spiritual environment.
+            Our program stresses academics in a warm & loving atmosphere giving each of our students a solid foundation
+            to enhance their education.
+            What a joy it is to have my alumni return to Guiding Light with their own children to give them the same
+            loving experience they
+            have learned to love. “Guiding Lake Havasu City’s Children Since 1985”.
+          </p>
         </span>
-        <img src="../assets/teachers/fhanna.jpg" alt="Picture of the Teacher Floriana Hanna" class="border_primary">
-        <p> It is my privilege to welcome you as the founder of Guiding Light Christian Educational Center. My dream
-          began in 1985 when I
-          developed our unique facility. To this day I continue to offer each student a quality education in a
-          spiritual environment.
-          Our program stresses academics in a warm & loving atmosphere giving each of our students a solid foundation
-          to enhance their education.
-          What a joy it is to have my alumni return to Guiding Light with their own children to give them the same
-          loving experience they
-          have learned to love. “Guiding Lake Havasu City’s Children Since 1985”.
-        </p>
+        <img src="../assets/teachers/fhanna.jpg" alt="Picture of the Founder Floriana Hanna" class="border_primary">
       </div>
 
     </div>
@@ -447,14 +567,14 @@
       </div>
 
       <div class="footer_card_standard border_primary text_align_center">
-        <h4>From the Founder</h4>
+       <h4 class="remove_padding_bottom">From the Founder</h4>
         <p>
           My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
           quality education, which stresses academics in a warm spirtual atmosphere.
           <br /> <br />
           My kindest regards,
         </p>
-        <img src="../assets/signature.png" alt="Founders signature">
+        <img src="../assets/common/signature.png" alt="Founders signature">
       </div>
     </div>
 

@@ -25,7 +25,7 @@
   <title>Guiding Light School</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="../style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="../assets/favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/common/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"
     }> </script>
@@ -69,7 +69,7 @@
       sync_slideshows();
     }
 
-    function header_slideshow_counter_auto_increase() {                     // scroll right on header slideshow
+    function header_slideshow_counter_auto_increase() {                // scroll right on header slideshow
       header_slideshow_counter++;
       if (header_slideshow_counter >= header_slideshow_pics_array.length) {
         header_slideshow_counter = 0;
@@ -77,13 +77,13 @@
       sync_slideshows();
     }
 
-    if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
-      setInterval(header_slideshow_counter_auto_increase, 2500);
+    if (bool_header_slideshow_autoscroll == true) {                    // autoscroll header slideshow
+      setInterval(header_slideshow_counter_auto_increase, 3500);
     }
     else {
     }
 
-    function testimony_slideshow_counter_auto_increase() {                  // scroll right on testimony slideshow
+    function testimony_slideshow_counter_auto_increase() {             // scroll right on testimony slideshow
       testimony_slideshow_counter++;
       if (testimony_slideshow_counter >= testimony_slideshow_array.length) {
         testimony_slideshow_counter = 0;
@@ -91,7 +91,7 @@
       sync_slideshows();
     }
 
-    if (bool_testimony_slideshow_autoscroll == true) {               // autoscroll testimony slideshow
+    if (bool_testimony_slideshow_autoscroll == true) {                 // autoscroll testimony slideshow
       setInterval(testimony_slideshow_counter_auto_increase, 4000);
     }
     else {
@@ -232,16 +232,16 @@
   <header>
 
     <div class="banner_l text_align_center">
-      <a href="donation.html"> <img src="../assets/donate.png" alt="go to donation"> Donate</a>
-      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/facebook.png"
+      <a href="donation.html"> <img src="../assets/common/donate.png" alt="go to donation"> Donate</a>
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/common/facebook.png"
           alt="go to facebook"> Facebook</a>
-      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/map.png" alt="navigate map"> 220 Mescal Ln
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220 Mescal Ln
       </a>
     </div>
 
     <div class="banner_r text_align_center">
-      <a href="tel:+19288551022"> <img src="../assets/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/mail.png" alt="go to donation"> Contact
+      <a href="tel:+19288551022"> <img src="../assets/common/phone.png" alt="call phone"> (928) 855-1022 </a>
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation"> Contact
       </a>
       <a>
         <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
@@ -281,6 +281,11 @@
           </a>
           <a href="https://www.zerotothree.org/"> Zero to Three </a>
           <a href="scholarships.html"> Scholarship Info </a>
+          <button id="nav_drop_button" onclick="toggleNavMoreLinks()">
+            <span id="nav_drop_html"> Close </span>
+            <span id="nav_drop_iconify"> <span class="iconify" width="15px" data-icon="oi:caret-top"
+                data-inline="false"> </span> </span>
+          </button>
         </div>
       </div>
     </nav>
@@ -290,7 +295,7 @@
   <section class="page_title">
     <div class="container">
       <h1> Welcome to Guiding Light </h1>
-      <h3 style="padding-bottom: unset;">Thank you for considering our school! </h3>
+      <h3 class="remove_padding_bottom">Thank you for considering our school! </h3>
       <p>
         Our mission since the school's inception is to provide Lake Havasu City a high quality educational and
         spiritual program for all children, in a warm and loving atmosphere.
@@ -404,14 +409,14 @@
       </div>
 
       <div class="footer_card_standard border_primary text_align_center">
-        <h4>From the Founder</h4>
+        <h4 class="remove_padding_bottom">From the Founder</h4>
         <p>
           My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
           quality education, which stresses academics in a warm spirtual atmosphere.
           <br /> <br />
           My kindest regards,
         </p>
-        <img src="../assets/signature.png" alt="Founders signature">
+        <img src="../assets/common/signature.png" alt="Founders signature">
       </div>
     </div>
 
