@@ -525,6 +525,7 @@ a > img:active {
     margin-top:-20px;
     width: 95vw;
     height: 40vh;
+    min-height: 140px;
     max-height: 350px;
   }
     
@@ -538,6 +539,14 @@ a > img:active {
     filter: drop-shadow(8px 8px 10px rgb(29, 1, 1));
     opacity: 85%;
     z-index: 2;
+  }
+
+  @media screen and (max-height:775px) {
+
+    #header_slideshow_left, #header_slideshow_right  {
+      top: 60%;
+   }
+
   }
 
   #header_slideshow_left {
