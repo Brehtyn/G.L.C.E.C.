@@ -32,208 +32,13 @@
 </head>
 
 <body>
-  <script>
-
-    var scroll_distance_fromtop;                                       // distance scrolled from top of page used for nav position function
-
-    var header_slideshow_pics_array =
-      ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
-    var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    var header_slideshow_counter = 0;
-    var bool_header_slideshow_autoscroll = true;
-
-    var testimony_slideshow_array =
-      ["'Guiding Light has a staff that is nice and caring!! They go above and beyond!! Thank you Guiding Light staff!!!'", "'It's great to see such wonderful people providing such a great and important service ... to ensure that the little folks of Havasu are able to get a loving and guided education!'", "'We love Guiding Light! My son has learned and grown so much since attending.'", "'Thank you so much for making my girls feel at home.'", "'Wonderful staff that genuinely cares about their students and families! My daughter loves this school!'", "'25 years ago my children went to GLCEC and now my grandchildren go there and you have been one of the biggest blessigs in our lives ... for many years.'"];
-    var testimony_slideshow_caption_array =
-      [" - Tina V", " - Mo S.", " - Melanie N.", " - Al L.", " - Jodie C.", " - Rhonda F."];
-    var testimony_slideshow_counter = 0;
-    var bool_testimony_slideshow_autoscroll = true;
-
-    var bool_mobile_nav_display = false;
-    var bool_mobile_nav_more_display = false;
-
-    function header_slideshow_counter_decrease() {                     // scroll left on header slideshow
-      header_slideshow_counter--;
-      if (header_slideshow_counter < 0) {
-        header_slideshow_counter = (header_slideshow_pics_array.length - 1);
-      }
-      sync_slideshows();
-    }
-
-    function header_slideshow_counter_increase() {                     // scroll right on header slideshow
-      header_slideshow_counter++;
-      if (header_slideshow_counter >= header_slideshow_pics_array.length) {
-        header_slideshow_counter = 0;
-      }
-      sync_slideshows();
-    }
-
-    function header_slideshow_counter_auto_increase() {                     // scroll right on header slideshow
-      header_slideshow_counter++;
-      if (header_slideshow_counter >= header_slideshow_pics_array.length) {
-        header_slideshow_counter = 0;
-      }
-      sync_slideshows();
-    }
-
-    if (bool_header_slideshow_autoscroll == true) {                  // autoscroll header slideshow
-      setInterval(header_slideshow_counter_auto_increase, 3500);
-    }
-    else {
-    }
-
-    function testimony_slideshow_counter_auto_increase() {                  // scroll right on testimony slideshow
-      testimony_slideshow_counter++;
-      if (testimony_slideshow_counter >= testimony_slideshow_array.length) {
-        testimony_slideshow_counter = 0;
-      }
-      sync_slideshows();
-    }
-
-    if (bool_testimony_slideshow_autoscroll == true) {               // autoscroll testimony slideshow
-      setInterval(testimony_slideshow_counter_auto_increase, 4000);
-    }
-    else {
-    }
-
-    function sync_slideshows() {
-      document.getElementById('header_slideshow_pics').style.backgroundImage = header_slideshow_pics_array[header_slideshow_counter];
-      document.getElementById('header_slideshow_links').href = header_slideshow_links_array[header_slideshow_counter];
-      document.getElementById('testimony_slideshow').textContent = testimony_slideshow_array[testimony_slideshow_counter];
-      document.getElementById('testimony_slideshow_caption').textContent = testimony_slideshow_caption_array[testimony_slideshow_counter];
-    }
-
-    window.onbeforeunload = function () {                              // scroll to top of page on load
-      window.scrollTo(0, 0);
-    }
-
-    $(document).ready(function () {
-      var scrollTop = $(window).scrollTop();                           // find distance from top of page
-      var navmenu = document.getElementById("link_menu");              // put link menu element in a variable
-      var navelementOffset = navmenu.offsetTop;                        // find offset of link menu element
-
-      scroll_distance_fromtop = (navelementOffset - scrollTop);        // calculate link menu from top of page
-    });
-
-    $(window).scroll(function () {                                     // change nav position state based on scroll distance
-      if ($(window).width() <= 1099) { }                               // do nothing on mobile
-      else {
-        var activeTop = $(window).scrollTop();                         // find distance from top of page & store it 
-        if (activeTop <= (scroll_distance_fromtop)) {                  // release link menu on adequate scroll distance
-          $('.link_menu').css("position", "relative");
-          $('.link_menu').css("left", "0%");
-          $('.link_menu').css("transform", "unset");
-        }
-        else {
-          $('.link_menu').css("position", "fixed");                    // anchored link menu to page
-          $('.link_menu').css("top", "0");
-          $('.link_menu').css("left", "50%");
-          $('.link_menu').css("transform", "translate(-50%, 0)");
-        }
-      }
-    });
-
-    function toggleNavBar() {
-      if (bool_mobile_nav_display == false) {
-        document.getElementById("link_menu").style.display = "flex";
-        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span  class='iconify' data-icon='oi:x' width='16px' alt='Close Menu' data-inline='false'> </span>";
-        bool_mobile_nav_display = true;
-      }
-      else {
-        document.getElementById("link_menu").style.display = "none";
-        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span class='iconify' data-icon='oi:menu' alt='Navigation Menu' data-inline='false'> </span>";
-        bool_mobile_nav_display = false;
-      }
-    }
-
-    function toggleNavMoreLinks() {
-      if (bool_mobile_nav_more_display == false) {
-        document.getElementById("nav_drop_menu").style.display = "flex";
-        document.getElementById("nav_drop_html").innerHTML = "Close";
-        document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-top' data-inline='false'> </span>";
-        bool_mobile_nav_more_display = true;
-      }
-      else {
-        document.getElementById("nav_drop_menu").style.display = "none";
-        document.getElementById("nav_drop_html").innerHTML = "Useful Links";
-        document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-bottom' data-inline='false'> </span>";
-        bool_mobile_nav_more_display = false;
-      }
-    }
-
-    $(window).resize(function () {                                     // multiple nav state display issue fixes
-      if ($(window).width() <= 1099) {
-        document.getElementById("link_menu").style.display = "none";
-        document.getElementById("nav_drop_menu").style.display = "none";
-        $('.link_menu').css("position", "fixed");
-        bool_mobile_nav_display = false;
-        bool_mobile_nav_more_display = false;
-        $('.link_menu').css("left", "50%");
-        $('.link_menu').css("transform", "translate(-50%, 0)");
-      }
-      else {
-        document.getElementById("link_menu").style.display = "flex";
-        document.getElementById("nav_drop_menu").style.display = "none";
-        bool_mobile_nav_more_display = false;
-      }
-      document.getElementById("mobile_nav_button_iconify").innerHTML = "<span class='iconify' data-icon='oi:menu' alt='Navigation Menu' data-inline='false'> </span>";
-      document.getElementById("nav_drop_html").innerHTML = "Useful Links";
-      document.getElementById("nav_drop_iconify").innerHTML = "<span class='iconify' width='15px' data-icon='oi:caret-bottom' data-inline='false'> </span>";
-    });
-
-    function openForm_contact() {
-      document.getElementById("contactForm").style.display = "block";
-      document.getElementById("backgroundForm").style.display = "block";
-    }
-
-    function openForm_private() {
-      document.getElementById("privateForm").style.display = "block";
-      document.getElementById("backgroundForm").style.display = "block";
-    }
-
-    function openForm_enroll() {
-      document.getElementById("enrollForm").style.display = "block";
-      document.getElementById("backgroundForm").style.display = "block";
-    }
-
-    function closeForms() {
-      document.getElementById("privateForm").style.display = "none !important";
-      document.getElementById("enrollForm").style.display = "none !important";
-      document.getElementById("contactForm").style.display = "none !important";
-      document.getElementById("backgroundForm").style.display = "none !important";
-    }
-
-    function validateForm() {
-      var k = document.forms["generalcontactform"]["name"].value;
-      if (k == "") {
-        alert("Please provide your name.");
-        return false;
-      }
-      var k = document.forms["generalcontactform"]["phone"].value;
-      if (k == "") {
-        alert("Please provide your phone number.");
-        return false;
-      }
-      var k = document.forms["generalcontactform"]["email"].value;
-      if (k == "") {
-        alert("Please provide your email address.");
-        return false;
-      }
-      var k = document.forms["generalcontactform"]["message"].value;
-      if (k == "") {
-        alert("Please include your desired comment.");
-        return false;
-      }
-    }
-
-  </script>
+  <script src="../common.js"> </script>
 
   <!-- Photoswipe Dependencies -->
-  <link rel="stylesheet" href="../assets/photoswipe/photoswipe.css"> 
-  <link rel="stylesheet" href="../assets/photoswipe/default-skin/default-skin.css"> 
-  <script src="../assets/photoswipe/photoswipe.js" defer></script> 
-  <script src="../assets/photoswipe/photoswipe-ui-default.js" defer></script> 
+  <link rel="stylesheet" href="../assets/photoswipe/photoswipe.css">
+  <link rel="stylesheet" href="../assets/photoswipe/default-skin/default-skin.css">
+  <script src="../assets/photoswipe/photoswipe.js" defer></script>
+  <script src="../assets/photoswipe/photoswipe-ui-default.js" defer></script>
 
   <script defer>
 
@@ -304,15 +109,17 @@
 
     <div class="banner_l text_align_center">
       <a href="donation.html"> <img src="../assets/common/donate.png" alt="go to donation"> Donate</a>
-      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img src="../assets/common/facebook.png"
-          alt="go to facebook"> Facebook</a>
-      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220 Mescal Ln
+      <a href="https://www.facebook.com/GuidingLightChristianEducationalCenter/"> <img
+          src="../assets/common/facebook.png" alt="go to facebook"> Facebook</a>
+      <a href="https://goo.gl/maps/ifVrNqKA4fRYr2xh2"> <img src="../assets/common/map.png" alt="navigate map"> 220
+        Mescal Ln
       </a>
     </div>
 
     <div class="banner_r text_align_center">
       <a href="tel:+19288551022"> <img src="../assets/common/phone.png" alt="call phone"> (928) 855-1022 </a>
-      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation"> Contact
+      <a class="open_cursor" onclick="openForm_contact()"> <img src="../assets/common/mail.png" alt="go to donation">
+        Contact
       </a>
       <a>
         <button onclick="toggleNavBar()" class="mobile_nav_button open_cursor">
@@ -341,17 +148,22 @@
               data-inline="false"> </span> </span>
         </button>
         <div id="nav_drop_menu">
-          <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light"> Az Dep. of Health
+          <a href="https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light">AZ Dep. of Health
             Services </a>
-          <a href="https://www.azccrr.com/"> Childcare Resources & Refs </a>
-          <a href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance"> Dep. of
-            Economic Security </a>
-          <a href="https://www.firstthingsfirst.org/"> First Things First </a>
-          <a href="https://ecedassociates.com/"> Early Childhood Edu Inc. </a>
+          <a href="https://www.azccrr.com/">Childcare Resource & Referral</a>
+          <a href="https://des.az.gov/services/child-and-family/child-care/how-apply-for-child-care-assistance">Dep. of
+            Economic Security</a>
+          <a href="https://www.firstthingsfirst.org/">First Things First</a>
+          <a href="https://ecedassociates.com/">Early Childhood Edu Inc.</a>
           <a href="https://www.swhd.org/programs/health-and-development/birth-to-five-helpline/"> Birth to Five Helpline
           </a>
-          <a href="https://www.zerotothree.org/"> Zero to Three </a>
-          <a href="scholarships.html"> Scholarship Info </a>
+          <a href="https://www.zerotothree.org/">Zero to Three</a>
+          <a href="scholarships.html">Scholarship Info</a>
+          <button id="nav_drop_button" onclick="toggleNavMoreLinks()">
+            <span id="nav_drop_html"> Close </span>
+            <span id="nav_drop_iconify"> <span class="iconify" width="15px" data-icon="oi:caret-top"
+                data-inline="false"> </span> </span>
+          </button>
         </div>
       </div>
     </nav>
@@ -439,15 +251,18 @@
           </div>
         </div>
       </div>
-      <div class="split"> 
-      <p class="text_align_center" style="font-size: var(--font-size-small);"> 
-        Tap the 'Open Gallery' button to view all our pictures!
-        Once the gallery is open, tap the arrows icons to navigate. Swiping or keyboard arrow keys works as well. 
-        To close the gallery, use the <span class='iconify' data-icon='oi:x' width='12px' alt='X' data-inline='false'> </span> button located at the top right of the gallery or scroll your mouse wheel.
-      </p>
-      <button class="fancy_button border_primary open_cursor" onclick="openPhotoSwipe()"><span> Open Gallery </span></button>
+      <div class="split">
+        <p class="text_align_center" style="font-size: var(--font-size-small);">
+          Tap the 'Open Gallery' button to view all our pictures!
+          Once the gallery is open, tap the arrows icons to navigate. Swiping or keyboard arrow keys works as well.
+          To close the gallery, use the <span class='iconify' data-icon='oi:x' width='12px' alt='X' data-inline='false'>
+          </span> button located at the top right of the gallery or scroll your mouse wheel.
+        </p>
+        <button class="fancy_button border_primary open_cursor" onclick="openPhotoSwipe()"><span> Open Gallery
+          </span></button>
       </div>
-      <p class="text_align_center"> If you have any questions or additons to our gallery, do not hesitate to message or call the front office!</p>
+      <p class="text_align_center"> If you have any questions or additons to our gallery, do not hesitate to message or
+        call the front office!</p>
     </div>
   </section>
 
@@ -477,7 +292,7 @@
     <div class="container">
       <h2> Meet the Front Office! </h2>
       <div class="profile_card">
-        
+
         <span>
           <h2> Nadine Bartels </h2>
           <h4> Director </h4>
@@ -500,20 +315,22 @@
       </div>
 
       <div class="profile_card">
-        <span> 
+        <span>
           <h2> Shanta Abbott </h2>
           <h4> Executive Administrator </h4>
           <p>
-            Shanta provides administrative business oversight for the company, handling payroll and other budgeting responsibilies.
+            Shanta provides administrative business oversight for the company, handling payroll and other budgeting
+            responsibilies.
             <br /> <br />
-            A more detailed future description will be avaliable later! 
+            A more detailed future description will be avaliable later!
           </p>
         </span>
-        <img src="../assets/teachers/abbott.jpg" alt="Picture of the Administrator Shanta Abbott" class="border_primary">
+        <img src="../assets/teachers/abbott.jpg" alt="Picture of the Administrator Shanta Abbott"
+          class="border_primary">
       </div>
 
       <div class="profile_card">
-        <span> 
+        <span>
           <h2> Sharon Kewish </h2>
           <h4> Administrator Assistant </h4>
           <p>
@@ -524,7 +341,7 @@
         </span>
         <img src="../assets/teachers/kewish.jpg" alt="Picture of the Teacher Sharon Kewish" class="border_primary">
       </div>
-      
+
       <div class="profile_card">
         <span>
           <h2> Floriana Hanna </h2>
@@ -567,7 +384,7 @@
       </div>
 
       <div class="footer_card_standard border_primary text_align_center">
-       <h4 class="remove_padding_bottom">From the Founder</h4>
+        <h4 class="remove_padding_bottom">From the Founder</h4>
         <p>
           My dream began in 1985 when I developed our unique facility. To this day I continue to offer each student a
           quality education, which stresses academics in a warm spirtual atmosphere.
@@ -615,7 +432,8 @@
       <input type="email" class="private_form" name="email" placeholder="example@email.com">
       <span> Comment(s): </span>
       <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
-      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit </button>
+      <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit
+      </button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
     </form>
   </div>

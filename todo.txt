@@ -1,16 +1,20 @@
  ~~~~~~~~~~~~ General ~~~~~~~~~~~~ 
-- css animations 
-	-header_slideshow
-	-testimony_slideshow
-	-some text reveal
 
 - enroll add addition child
-- php validation
 
 - presentation powerpoint
 - *final meeting*
 
+- gallery pics & future implemenations
+- php validation
 - email forwards
-- sharons pic
+- sharons pic & new picture day pictures
 
+- some text css animation reveal
+
+
+bugfixing :
+
+-mobile nav button iconify uncentered [ok?]
+-mobile animations [ ? ]
 
