@@ -1,7 +1,6 @@
  ~~~~~~~~~~~~ General ~~~~~~~~~~~~ 
 
 - enroll add addition child
-- php validation
 - human verification
 
  ~~~~~~~~~~~~ Waiting On ~~~~~~~~~~~~ 

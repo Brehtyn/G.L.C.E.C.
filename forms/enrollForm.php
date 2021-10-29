@@ -1,16 +1,17 @@
 <?php
 
-$child_name = $_POST['child_name'];
-$child_birthdate = $_POST['child_birthdate'];
-$child_pt = $_POST['child_pt'];
-$child_gender = $_POST['child_gender'];
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$work_phone = $_POST['work_phone'];
-$visitor_email = $_POST['email'];
-$program = $_POST['program'];
-$date_needed = $_POST['date_needed'];
-$referral = $_POST['referral'];
+$child_name = $_POST[htmlspecialchars('child_name')];
+$child_birthdate = $_POST[htmlspecialchars('child_birthdate')];
+$child_pt = $_POST[htmlspecialchars('child_pt')];
+$child_gender = $_POST[htmlspecialchars('child_gender')];
+$name = $_POST[htmlspecialchars('name')];
+$phone = $_POST[htmlspecialchars('phone')];
+$work_phone = $_POST[htmlspecialchars('work_phone')];
+$visitor_email = $_POST[htmlspecialchars('email')];
+$program = $_POST[htmlspecialchars('program')];
+$date_needed = $_POST[htmlspecialchars('date_needed')];
+$referral = $_POST[htmlspecialchars('referral')];
+
 $url='https://www.glcec.org/index.html';
 
 $email_from = "admin@glcec.org";
@@ -37,12 +38,12 @@ $email_body = "You have received a new message from $name.
 
 mail($to,$email_subject,$email_body,$headers);
 
-echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$url.'">';
 
 echo "<h1> FORM SENT SUCCESS! </h1>";
 
-echo "Thank you " .$name. ", if your browser doesnt automatically redirect you please ";
+echo "Thank you " .$name. ", if your browser doesn't automatically redirect you in 30 seconds, please ";
 
-echo "<a href='".$url."'>CLICKHERE.</a>";
+echo "<a href='".$url."'>CLICK HERE.</a>";
 
 ?>

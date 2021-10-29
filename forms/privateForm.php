@@ -1,9 +1,9 @@
 <?php
 
-$name = $_POST['private_name'];
-$phone = $_POST['private_phone'];
-$visitor_email = $_POST['private_email'];
-$message = $_POST['private_message'];
+$name = $_POST[htmlspecialchars('private_name')];
+$phone = $_POST[htmlspecialchars('private_phone')];
+$visitor_email = $_POST[htmlspecialchars('private_email')];
+$message = $_POST[htmlspecialchars('private_message')];
 $url='https://www.glcec.org/index.html';
 
 $email_from = "admin@glcec.org";
