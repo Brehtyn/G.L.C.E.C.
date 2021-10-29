@@ -2,6 +2,7 @@
     deployment:
         tasks:
             - export DEPLOYPATH=/home/s7arpy7c7ysm/public_html/
+            - /bin/cp index.html $DEPLOYPATH
             - /bin/cp -R pages $DEPLOYPATH
             - /bin/cp style.css $DEPLOYPATH
             - /bin/cp common.js $DEPLOYPATH
