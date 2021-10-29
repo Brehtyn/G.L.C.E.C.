@@ -4,7 +4,7 @@
     var header_slideshow_pics_array =
       ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
     var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "https://www.glcec.org/pages/donation.html", "https://www.glcec.org/pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
     var header_slideshow_counter = 0;
     var bool_header_slideshow_autoscroll = true;
 
