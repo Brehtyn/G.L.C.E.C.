@@ -1,31 +1,7 @@
 
     var scroll_distance_fromtop;                                       // distance scrolled from top of page used for nav position function
 
-    if ( document.URL == "https://glcec.org/index.html"){
-      var header_slideshow_pics_array =
-      ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
-      var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "pages/donation.html", "pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    }
-    if ( document.URL == "https://glcec.org") {
-      var header_slideshow_pics_array =
-      ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
-      var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "pages/donation.html", "pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    }
-    if ( document.URL == "glcec.org") {
-      var header_slideshow_pics_array =
-      ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
-      var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "pages/donation.html", "pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    }
-    if ( document.URL == "http://glcec.org/index.html") {
-      var header_slideshow_pics_array =
-      ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
-      var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "pages/donation.html", "pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
-    }
-    if ( document.URL == "http://glcec.org") {
+    if ( document.title == "Guiding Light School"){
       var header_slideshow_pics_array =
       ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
       var header_slideshow_links_array =
