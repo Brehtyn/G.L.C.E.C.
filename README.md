@@ -1,5 +1,5 @@
 
-![Logo](https://github.com/Brehtyn/G.L.C.E.C./blob/main/assets/banner_1.png?raw=true)
+![Logo](https://github.com/Brehtyn/G.L.C.E.C./blob/main/assets/common/favicon.ico?raw=true)
 
     
 # Professional Childcare Web2.0
@@ -25,11 +25,12 @@ This project is purchased & used primarily by the following company(s):
 
 - Custom graphics for divs & other elements
 - High-quality photos of school & faculty
+- CSS Animations and UX optimization
 - Full web2.0 experience & interactivity
 - Responsive design for all modern devices
 - Enrollment/PoC for front office
 - Central resource portal to useful childcare resources
-- Automatic looping new banner
+- Automatic looping news banner & review card
 - Map to physical location
 - Enrollment information, pricing, & service display
 - Teacher profile cards
