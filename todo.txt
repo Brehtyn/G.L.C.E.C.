@@ -7,7 +7,3 @@
 - gallery pics & future implemenations
 - email forwards
 - sharons pic & new picture day pictures
-
-bugfixing :
-
--mobile nav close button iconify uncentered 
