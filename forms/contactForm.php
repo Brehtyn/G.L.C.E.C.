@@ -4,6 +4,7 @@ $name = $_POST[htmlspecialchars('name')];
 $phone = $_POST[htmlspecialchars('phone')];
 $visitor_email = $_POST[htmlspecialchars('email')];
 $message = $_POST[htmlspecialchars('message')];
+
 $url='https://www.glcec.org/';
 
 $email_from = "admin@glcec.org";
@@ -20,12 +21,12 @@ $email_body = "You have received a new message from $name (email $visitor_email)
 
 mail($to,$email_subject,$email_body,$headers);
 
-echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$url.'">';
 
 echo "<h1> FORM SENT SUCCESS! </h1>";
 
-echo "Thank you " .$name. ", if your browser doesnt automatically redirect you please ";
+echo "Thank you " .$name. ", if your browser doesn't automatically redirect you in 30 seconds, please ";
 
-echo "<a href='".$url."'>CLICKHERE.</a>";
+echo "<a href='".$url."'>CLICK HERE.</a>";
 
 ?>

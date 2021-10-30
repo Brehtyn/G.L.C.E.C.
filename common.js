@@ -1,10 +1,20 @@
 
     var scroll_distance_fromtop;                                       // distance scrolled from top of page used for nav position function
 
-    var header_slideshow_pics_array =
+    if ( document.URL == "https://www.glcec.org/") {
+      var header_slideshow_pics_array =
+      ["url(assets/banner_title.png)", "url(assets/banner_hiring.png)", "url(assets/banner_adhs.png)", "url(assets/banner_donate.png)", "url(assets/banner_enroll.png)", "url(assets/banner_facebook.png)"];
+      var header_slideshow_links_array =
+      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "pages/donation.html", "pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+    
+    }
+    else{
+      var header_slideshow_pics_array =
       ["url(../assets/banner_title.png)", "url(../assets/banner_hiring.png)", "url(../assets/banner_adhs.png)", "url(../assets/banner_donate.png)", "url(../assets/banner_enroll.png)", "url(../assets/banner_facebook.png)"];
-    var header_slideshow_links_array =
-      ["index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "https://www.glcec.org/pages/donation.html", "https://www.glcec.org/pages/enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+      var header_slideshow_links_array =
+      ["../index.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/posts/448300146573901", "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=guiding%20light", "donation.html", "enroll.html", "https://www.facebook.com/GuidingLightChristianEducationalCenter/"];
+    }
+  
     var header_slideshow_counter = 0;
     var bool_header_slideshow_autoscroll = true;
 
@@ -104,7 +114,7 @@
     function toggleNavBar() {
       if (bool_mobile_nav_display == false) {
         document.getElementById("link_menu").style.display = "flex";
-        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span  class='iconify' data-icon='oi:x' width='16px' alt='Close Menu' data-inline='false'> </span>";
+        document.getElementById("mobile_nav_button_iconify").innerHTML = "<span class='iconify' data-icon='oi:x' align='center' alt='Close Menu' data-inline='false'> </span>";
         bool_mobile_nav_display = true;
       }
       else {
