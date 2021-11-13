@@ -76,8 +76,8 @@
       document.getElementById('header_slideshow_links').href = header_slideshow_links_array[header_slideshow_counter];
       document.getElementById('testimony_slideshow').textContent = testimony_slideshow_array[testimony_slideshow_counter];
       document.getElementById('testimony_slideshow_caption').textContent = testimony_slideshow_caption_array[testimony_slideshow_counter];
-      document.getElementByID('testimony_slideshow').style.animation = "footer_fadeOutthenIn ease 2s forwards";
-      document.getElementByID('testimony_slideshow_caption').style.animation = "footer_fadeOutthenIn ease 2s forwards";
+      document.getElementById('testimony_slideshow').style.animation = "footer_fadeOutthenIn ease 2s forwards";
+      document.getElementById('testimony_slideshow_caption').style.animation = "footer_fadeOutthenIn ease 2s forwards";
     }
 
     window.onbeforeunload = function () {                              // scroll to top of page on load
