@@ -1,10 +1,7 @@
+# G.L.C.E.C.
 
 ![Logo](https://github.com/Brehtyn/G.L.C.E.C./blob/main/assets/common/favicon.ico?raw=true)
-
-    
-# Professional Childcare Web2.0
-
-Website suitable for childcare, schooling, or tutoring services. 
+Professional childcare website for Guiding Light Christian Education Center.
 
 
 ## Screenshots
@@ -41,8 +38,11 @@ This project is purchased & used primarily by the following company(s):
 
 ## Tech Stack
 
-HTML/CSS/JS/PHP run on any supported server software (APACHE/LINUX RECOMMENDED)
+HTML/CSS/JS/PHP 
 
+Best ran on dedicated hosting services.
+(APACHE/LINUX RECOMMENDED)
+Contact [Brentyn](https://ibigital.com/) for more info.
 
 
 ## Acknowledgements
@@ -51,7 +51,6 @@ HTML/CSS/JS/PHP run on any supported server software (APACHE/LINUX RECOMMENDED)
  - Free Photoeditor [Photopea](https://www.photopea.com/)
  - Slick HTML5/JS Gallery [Photoswipe](https://photoswipe.com/)
  - Graphic Artist: [Brenn](https://www.instagram.com/night.of.the.living.brenn/)
- - Developer's Personal Site: [Brentyn](https://ibigital.com/)
 
 
   
