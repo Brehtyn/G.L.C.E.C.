@@ -1,6 +1,5 @@
-# G.L.C.E.C.
+# ![Logo](https://github.com/Brehtyn/G.L.C.E.C./blob/main/assets/common/favicon.ico?raw=true) G.L.C.E.C.
 
-![Logo](https://github.com/Brehtyn/G.L.C.E.C./blob/main/assets/common/favicon.ico?raw=true)
 Professional childcare website for Guiding Light Christian Education Center.
 
 
