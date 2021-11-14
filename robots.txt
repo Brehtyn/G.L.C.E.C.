@@ -1,5 +1,5 @@
 
-Sitemap: http://glcec.org/sitemap.txt
+Sitemap: http:/glcec.org/sitemap.txt
 
 User-agent: *
 Disallow: /contactForm.php
