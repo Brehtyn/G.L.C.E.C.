@@ -27,7 +27,8 @@
   <link href="../style.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="../assets/common/favicon.ico">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <script async crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"  }> </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script async defer crossorigin="anonymous" { src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"}> </script>
 </head>
 
 <body>
@@ -231,6 +232,7 @@
       <input type="email" class="private_form" name="email" placeholder="example@email.com">
       <span> Comment(s): </span>
       <textarea type="text" class="private_form" name="message" placeholder=""> </textarea>
+      <div class="g-recaptcha" data-sitekey="6LeWyj8dAAAAAIiKUs5ne310wQjrC0cuB1fhgENs"></div>
       <button class="border_primary open_cursor" type="submit" value="Send Form" onclick="return validateForm()"> Submit
       </button>
       <a class="border_primary" id="fake_button" href="" onclick="closeForms()"> Close </a>
