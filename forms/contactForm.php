@@ -5,7 +5,7 @@ $phone = $_POST[htmlspecialchars('phone')];
 $visitor_email = $_POST[htmlspecialchars('email')];
 $message = $_POST[htmlspecialchars('message')];
 
-$url='https://www.glcec.org/';
+$site_url='https://www.glcec.org/';
 
 $email_from = "admin@glcec.org";
 
@@ -19,14 +19,40 @@ $headers .= "Reply-To: $visitor_email \r\n";
 
 $email_body = "You have received a new message from $name (email $visitor_email). \r\n Here is the message: \r\n $message";
 
-mail($to,$email_subject,$email_body,$headers);
+if(isset($_POST['g-recaptcha-response'])){
+    $captcha=$_POST['g-recaptcha-response'];
+}
 
-echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$url.'">';
+$secretKey = file_get_contents('key.txt');
 
-echo "<h1> FORM SENT SUCCESS! </h1>";
+$ip = $_SERVER['REMOTE_ADDR'];
 
-echo "Thank you " .$name. ", if your browser doesn't automatically redirect you in 30 seconds, please ";
+$url = "https://www.google.com/recaptcha/api/siteverify?secret=".urlencode($secretKey)."&response=".urlencode($captcha)."&remoteip=".$ip;
 
-echo "<a href='".$url."'>CLICK HERE.</a>";
+$response = file_get_contents($url);
+
+$responseKeys = json_decode($response,true);
+
+if($responseKeys["success"]) {
+    mail($to,$email_subject,$email_body,$headers);
+
+    echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$site_url.'">';
+
+    echo "<h1> FORM SENT SUCCESS! </h1>";
+
+    echo "Thank you " .$name. ", if your browser doesn't automatically redirect you in 30 seconds, please ";
+
+    echo "<a href='".$site_url."'>CLICK HERE.</a>";
+}
+
+else {
+
+    echo "verification error";
+
+    echo "please submit form again and contact us if problem persists";
+
+}
+
+
 
 ?>

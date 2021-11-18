@@ -931,7 +931,6 @@ footer {
   animation-iteration-count: 1;
 }
 
-
 .form-background {
   background-color: black;
   z-index: 5;
@@ -979,6 +978,26 @@ footer {
   letter-spacing: 2px;
   text-decoration: underline;
   padding:5px;
+}
+
+.g-recaptcha {
+  margin: auto;
+  margin-top: 10%;
+}
+
+@media screen and (max-width:585px) {
+  .g-recaptcha {
+    -webkit-transform: scale(0.72);
+    -moz-transform: scale(0.72);
+    -ms-transform: scale(0.72);
+    -o-transform: scale(0.72);
+    transform: scale(0.72);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
 }
 
 .form-popup > form > input,
