@@ -27,13 +27,13 @@ $secretKey = file_get_contents('key.txt');
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$url = "https://www.google.com/recaptcha/api/siteverify?secret=".urlencode($secretKey)."&response=".urlencode($captcha)."&remoteip=".$ip;
+$url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip;
 
 $response = file_get_contents($url);
 
-$responseKeys = json_decode($response);
+$response = json_decode($response);
 
-if ($responseKeys->success) {
+if ($response->success) {
     mail($to,$email_subject,$email_body,$headers);
 
     echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$site_url.'">';
