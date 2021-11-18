@@ -31,7 +31,7 @@ $url = "https://www.google.com/recaptcha/api/siteverify?secret=".urlencode($secr
 
 $response = file_get_contents($url);
 
-$responseKeys = json_decode($response,true);
+$responseKeys = json_decode($response);
 
 if($responseKeys["success"]) {
     mail($to,$email_subject,$email_body,$headers);
@@ -44,15 +44,12 @@ if($responseKeys["success"]) {
 
     echo "<a href='".$site_url."'>CLICK HERE.</a>";
 }
-
 else {
 
-    echo "verification error";
+    echo "<h1> Verification Error </h1>";
 
-    echo "please submit form again and contact us if problem persists";
+    echo "Sorry " .$name. ", please contact us if the problem persists. ";
 
 }
-
-
 
 ?>
