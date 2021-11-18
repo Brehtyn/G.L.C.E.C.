@@ -33,7 +33,7 @@ $response = file_get_contents($url);
 
 $responseKeys = json_decode($response);
 
-if($responseKeys["success"]) {
+if ($responseKeys->success) {
     mail($to,$email_subject,$email_body,$headers);
 
     echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$site_url.'">';
