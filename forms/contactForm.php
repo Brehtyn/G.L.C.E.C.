@@ -19,7 +19,9 @@ $headers .= "Reply-To: $visitor_email \r\n";
 
 $email_body = "You have received a new message from $name (email $visitor_email). \r\n Here is the message: \r\n $message";
 
-$captcha=$_POST['g-recaptcha-response'];
+if(isset($_POST['g-recaptcha-response'])){
+    $captcha=$_POST['g-recaptcha-response'];
+}
 
 $secretKey = file_get_contents('key.txt');
 
@@ -32,7 +34,7 @@ $response = file_get_contents($url);
 $response = json_decode($response);
 
 if($response->success==true){
-
+    
         mail($to,$email_subject,$email_body,$headers);
     
         echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$site_url.'">';
