@@ -17,7 +17,7 @@ $headers = "From: $email_from \r\n";
 
 $headers .= "Reply-To: $visitor_email \r\n";
 
-$email_body = "You have received a new message from $name (email $visitor_email). \r\n Here is the message: \r\n $message";
+$email_body = "You have received a new message from $name (email: $visitor_email | phone#: $phone). \r\n Here is the message: \r\n $message";
 
 if(isset($_POST['g-recaptcha-response'])){
     $captcha=$_POST['g-recaptcha-response'];
