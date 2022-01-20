@@ -9,7 +9,7 @@ $site_url='https://www.glcec.org/';
 
 $email_from = "admin@glcec.org";
 
-$to = "admin@ibigital.com";
+$to = "admin@ibigital.com, shanta@glcec.org";
 
 $email_subject = "Contact Form from GLCEC.org";
 

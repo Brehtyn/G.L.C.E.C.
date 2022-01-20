@@ -16,7 +16,7 @@ $url='https://www.glcec.org/index.html';
 
 $email_from = "admin@glcec.org";
 
-$to = "admin@ibigital.com";
+$to = "admin@ibigital.com, shanta@glcec.org";
 
 $email_subject = "Enroll Form from GLCEC.org";
 
