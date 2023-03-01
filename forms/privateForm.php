@@ -19,6 +19,16 @@ $headers .= "Reply-To: $visitor_email \r\n";
 
 $email_body = "You have received a private concern from $name (email: $visitor_email | phone#: $phone). \r\n Here is the message: \r\n $message";
 
+if (empty($name)) {
+    echo "Sorry, a name is required.";
+    return false;
+}
+
+if (empty($visitor_email)) {
+    echo "Sorry, a return email is required.";
+    return false;
+}
+
 mail($to,$email_subject,$email_body,$headers);
 
 echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$url.'">';

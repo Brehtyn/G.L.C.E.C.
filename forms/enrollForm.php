@@ -36,6 +36,26 @@ $email_body = "You have received a new message from $name.
 \r\n Here is the date: \r\n $date_needed
 \r\n Here is their referral: \r\n $referral";
 
+if (empty($name)) {
+    echo "Sorry, a name is required.";
+    return false;
+}
+
+if (empty($visitor_email)) {
+    echo "Sorry, a return email is required.";
+    return false;
+}
+
+if (empty($child_name) {
+    echo "Sorry, a child's name is required.";
+    return false;
+}
+
+if (empty($program)) {
+    echo "Sorry, a program is required.";
+    return false;
+}
+
 mail($to,$email_subject,$email_body,$headers);
 
 echo '<META HTTP-EQUIV=REFRESH CONTENT="15; '.$url.'">';
