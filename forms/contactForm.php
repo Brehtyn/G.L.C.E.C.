@@ -33,6 +33,16 @@ $response = file_get_contents($url);
 
 $response = json_decode($response);
 
+if (empty($name)) {
+    echo "Sorry, a name is required.";
+    return false;
+}
+
+if (empty($visitor_email)) {
+    echo "Sorry, a return email is required.";
+    return false;
+}
+
 if($response->success==true){
     
         mail($to,$email_subject,$email_body,$headers);
