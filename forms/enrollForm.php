@@ -46,7 +46,7 @@ if (empty($visitor_email)) {
     return false;
 }
 
-if (empty($child_name) {
+if (empty($child_name)) {
     echo "Sorry, a child's name is required.";
     return false;
 }
