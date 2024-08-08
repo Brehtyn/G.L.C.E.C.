@@ -580,6 +580,34 @@ a > img:active {
   margin-bottom: 20px;
 }
 
+.pdf {
+  width: 85vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  z-index: 1;
+}
+
+.width_pdf {
+  max-width: 900px;
+  height: 60vh;
+  max-height: 700px;
+}
+
+.height_pdf {
+  max-width: 800px;
+  height: 85vh;
+  max-height: 1000px;
+}
+
+@media screen and (max-width:1100px) {
+
+  .pdf {
+    height: 30vh;
+  }
+  
+}
+
 @media screen and (min-width:1100px) { 
     
   .split {
@@ -784,26 +812,6 @@ a > img:active {
     max-width: 500px;
   }
 
-}
-
-.pdf {
-  width: 85vw;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 10px);
-  z-index: 1;
-}
-
-.width_pdf {
-  max-width: 900px;
-  height: 60vh;
-  max-height: 700px;
-}
-
-.height_pdf {
-  max-width: 800px;
-  height: 85vh;
-  max-height: 1000px;
 }
 
 footer {
